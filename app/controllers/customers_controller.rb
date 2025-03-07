@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: %i[ show edit update destroy ]
+  # before_action :set_customer, only: %i[ show edit update destroy ]
 
   # GET /customers or /customers.json
   def index
@@ -23,14 +23,10 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
 
-    respond_to do |format|
-      if @customer.save
-        format.html { redirect_to root_path, notice: "Customer was successfully created." }
-        format.json { render :show, status: :created, location: @customer }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
-      end
+    if @customer.save
+      redirect_to root_path, notice: 'Thank you for your submission!'
+    else
+      render :new, status: :unprocessable_entity # Re-render the form with errors
     end
   end
 
@@ -65,6 +61,7 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.expect(customer: [ :name, :email, :message, :project_type ])
+      # params.expect(customer: [ :name, :email, :message, :project_type ])
+      params.require(:customer).permit(:name, :email, :message, :project_type)
     end
 end

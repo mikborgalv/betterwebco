@@ -1,21 +1,40 @@
 // app/javascript/controllers/form_controller.js
 import { Controller } from "@hotwired/stimulus"
+import Inputmask from "inputmask" // Correct import statement
 
 export default class extends Controller {
   static targets = ["name", "email", "message", "submit", "error"]
 
   connect() {
+    this.initializeMasks()
     this.validateForm()
   }
 
+  initializeMasks() {
+    // Initialize Inputmask for the name field
+    new Inputmask({
+      regex: "^[A-Za-z]+( [A-Za-z]+)*$", // Allows only letters and spaces
+      placeholder: "Joe Doe", // Placeholder for the name field
+    }).mask(this.nameTarget)
+
+    // Initialize Inputmask for the email field
+    new Inputmask({
+      alias: "email", // Built-in email mask
+      placeholder: "joe@example.com", // Placeholder for the email field
+    }).mask(this.emailTarget)
+
+    // Placeholder for message (no strict mask)
+    this.messageTarget.placeholder = "Enter your message here (at least 10 characters)..."
+  }
+
   validateForm() {
-    const isNameValid = this.nameTarget.value.trim().length >= 2
-    const isEmailValid = this.validateEmail(this.emailTarget.value)
+    const isNameValid = this.nameTarget.inputmask.isComplete()
+    const isEmailValid = this.emailTarget.inputmask.isComplete()
     const isMessageValid = this.messageTarget.value.trim().length >= 10
 
-    this.nameTarget.classList.toggle("is-invalid", !isNameValid)
-    this.emailTarget.classList.toggle("is-invalid", !isEmailValid)
-    this.messageTarget.classList.toggle("is-invalid", !isMessageValid)
+    this.toggleValidationClass(this.nameTarget, isNameValid)
+    this.toggleValidationClass(this.emailTarget, isEmailValid)
+    this.toggleValidationClass(this.messageTarget, isMessageValid)
 
     this.submitTarget.disabled = !(isNameValid && isEmailValid && isMessageValid)
   }
@@ -23,6 +42,11 @@ export default class extends Controller {
   validateEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return regex.test(email)
+  }
+
+  toggleValidationClass(field, isValid) {
+    field.classList.toggle("is-valid", isValid)
+    field.classList.toggle("is-invalid", !isValid)
   }
 
   submitForm(event) {
@@ -35,8 +59,8 @@ export default class extends Controller {
   }
 
   isFormValid() {
-    const isNameValid = this.nameTarget.value.trim().length >= 2
-    const isEmailValid = this.validateEmail(this.emailTarget.value)
+    const isNameValid = this.nameTarget.inputmask.isComplete()
+    const isEmailValid = this.emailTarget.inputmask.isComplete()
     const isMessageValid = this.messageTarget.value.trim().length >= 10
     return isNameValid && isEmailValid && isMessageValid
   }

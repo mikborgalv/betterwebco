@@ -1,10 +1,87 @@
 $primary: #0d6efd;
 $dark: #212529;
+$success: #67a832;
+$light: #dad1d1;
+$danger: #adb5bd;
 
 /* app/assets/stylesheets/application.bootstrap.scss */
 .alert-danger {
     margin-top: 1rem;
+    border-color: $danger; // Red border for invalid fields
+    background-color: darken($danger, 40%); // Dark red background
+    color: $light; // Light text for contrast
   }
+
+  .form-control::placeholder {
+    color: #6c757d; /* Placeholder color */
+    opacity: 1; /* Ensure full visibility */
+    font-size: 14px; /* Adjust font size */
+    font-style: italic; /* Make placeholder text italic */
+  }
+  
+  .bg-dark .form-control::placeholder {
+    color: #adb5bd; /* Light gray color for dark theme */
+  }
+
+  // app/assets/stylesheets/application.bootstrap.scss
+
+// Custom validation styles for dark theme
+.form-control {
+  &.is-valid {
+    border-color: $success; // Green border for valid fields
+    background-color: darken($success, 40%); // Dark green background
+    color: $light; // Light text for contrast
+  }
+
+  &.is-invalid {
+    border-color: $danger; // Red border for invalid fields
+    background-color: darken($danger, 40%); // Dark red background
+    color: $light; // Light text for contrast
+  }
+}
+
+.invalid-feedback {
+  color: #ff6b6b; // Light red for dark theme
+  font-size: 0.875rem; // Smaller font size
+  margin-top: 0.25rem; // Add spacing
+  display: block; // Ensure the error message is displayed
+}
+
+.text-danger {
+  color: #ff6b6b; // Light red for dark theme
+  font-size: 0.875rem; // Smaller font size
+  margin-top: 0.25rem; // Add spacing
+  display: block; // Ensure the error message is displayed
+  z-index: 50;
+
+}
+
+/* Ensure error messages are visible in dark theme */
+.bg-dark .invalid-feedback {
+  color: #ff6b6b; // Light red for dark theme
+}
+
+/* Ensure form controls with errors are highlighted */
+.form-control.is-invalid {
+  border-color: #ff6b6b; // Light red border for invalid fields
+}
+
+.form-control::-webkit-input-placeholder { /* Chrome, Safari, Opera */
+  color: #6c757d;
+}
+
+.form-control::-moz-placeholder { /* Firefox */
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer */
+  color: #6c757d;
+}
+
+.form-control::placeholder { /* Modern browsers */
+  color: #6c757d;
+}
 
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
