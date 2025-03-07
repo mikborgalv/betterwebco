@@ -1,5 +1,10 @@
 $primary: #0d6efd;
 $dark: #212529;
 
+/* app/assets/stylesheets/application.bootstrap.scss */
+.alert-danger {
+    margin-top: 1rem;
+  }
+
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
