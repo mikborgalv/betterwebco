@@ -1,31 +1,42 @@
 <!-- app/views/customers/_form.html.erb -->
-<%= form_with(model: customer, data: { controller: "form", action: "input->form#validateForm submit->form#clearForm" }) do |form| %>
+
+ <%# <%= form_with(model: customer, data: { controller: "form", action: "input->form#validateForm submit->form#submitForm turbo:submit-end->form#clearForm" }) do |form| %>
+ <%= form_with(model: customer, data: { controller: "form", action: "input->form#validateForm turbo:submit-end->form#clearForm" }) do |form| %>
+ 
   <div class="mb-3">
     <%= form.label :name, class: 'form-label text-light' %>
-     <div class="input-group">
+    <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-person"></i></span>
-    <%= form.text_field :name, class: 'form-control bg-dark text-light', data: { form_target: "name", action: "input->form#validateForm" } %>
-    <div class="invalid-feedback">Name must be at least 2 characters.</div>
+      <%= form.text_field :name, class: 'form-control bg-dark text-light', data: { form_target: "name", action: "input->form#validateForm" } %>
     </div>
+    <div class="invalid-feedback">Name must be at least 2 characters.</div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, class: 'form-label text-light' %>
+    <div class="input-group">
+      <span class="input-group-text bg-dark text-light"><i class="bi bi-envelope"></i></span>
+      <%= form.email_field :email, class: 'form-control bg-dark text-light', data: { form_target: "email", action: "input->form#validateForm" } %>
+    </div>
+    <div class="invalid-feedback">Please enter a valid and unique email address.</div>
   </div>
 
   <div class="mb-3">
     <%= form.label :message, class: 'form-label text-light' %>
-        <div class="input-group">
+    <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-chat-left-text"></i></span>
-    <%= form.text_area :message, class: 'form-control bg-dark text-light', data: { form_target: "message", action: "input->form#validateForm" } %>
-    <div class="invalid-feedback">Message must be at least 10 characters.</div>
+      <%= form.text_area :message, class: 'form-control bg-dark text-light', data: { form_target: "message", action: "input->form#validateForm" } %>
     </div>
+    <div class="invalid-feedback">Message must be at least 10 characters.</div>
   </div>
 
   <div class="mb-3">
     <%= form.label :project_type, class: 'form-label text-light' %>
-     <div class="input-group">
+    <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-briefcase"></i></span>
-    <%= form.select :project_type, options_for_select(['web_development', 'web_consulting', 'web_partners'], customer.project_type), {}, class: 'form-select bg-dark text-light' %>
+      <%= form.select :project_type, options_for_select(['web_development', 'web_consulting', 'web_partners'], customer.project_type), {}, class: 'form-select bg-dark text-light' %>
+    </div>
   </div>
-  </div>
-
 
   <!-- Error message container -->
   <div class="alert alert-danger d-none" data-form-target="error"></div>

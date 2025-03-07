@@ -25,7 +25,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: "Customer was successfully created." }
+        format.html { redirect_to root_path, notice: "Customer was successfully created." }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +65,6 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.expect(customer: [ :name, :message, :project_type ])
+      params.expect(customer: [ :name, :email, :message, :project_type ])
     end
 end

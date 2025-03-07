@@ -2,7 +2,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["name", "message", "submit", "error"]
+  static targets = ["name", "email", "message", "submit", "error"]
 
   connect() {
     this.validateForm()
@@ -10,18 +10,24 @@ export default class extends Controller {
 
   validateForm() {
     const isNameValid = this.nameTarget.value.trim().length >= 2
+    const isEmailValid = this.validateEmail(this.emailTarget.value)
     const isMessageValid = this.messageTarget.value.trim().length >= 10
 
     this.nameTarget.classList.toggle("is-invalid", !isNameValid)
+    this.emailTarget.classList.toggle("is-invalid", !isEmailValid)
     this.messageTarget.classList.toggle("is-invalid", !isMessageValid)
 
-    this.submitTarget.disabled = !(isNameValid && isMessageValid)
+    this.submitTarget.disabled = !(isNameValid && isEmailValid && isMessageValid)
+  }
+
+  validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return regex.test(email)
   }
 
   submitForm(event) {
-    // Prevent the form from submitting if validation fails
     if (!this.isFormValid()) {
-      event.preventDefault() // Stop the form submission
+      event.preventDefault()
       this.showError("Please fill out all fields correctly.")
     } else {
       this.hideError()
@@ -30,8 +36,9 @@ export default class extends Controller {
 
   isFormValid() {
     const isNameValid = this.nameTarget.value.trim().length >= 2
+    const isEmailValid = this.validateEmail(this.emailTarget.value)
     const isMessageValid = this.messageTarget.value.trim().length >= 10
-    return isNameValid && isMessageValid
+    return isNameValid && isEmailValid && isMessageValid
   }
 
   showError(message) {
