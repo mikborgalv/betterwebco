@@ -1,0 +1,30 @@
+<!-- app/views/customers/_form.html.erb -->
+<%= form_with(model: customer, data: { controller: "form", action: "input->form#validateForm submit->form#clearForm" }) do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label text-light' %>
+     <div class="input-group">
+      <span class="input-group-text bg-dark text-light"><i class="bi bi-person"></i></span>
+    <%= form.text_field :name, class: 'form-control bg-dark text-light', data: { form_target: "name", action: "input->form#validateForm" } %>
+    <div class="invalid-feedback">Name must be at least 2 characters.</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :message, class: 'form-label text-light' %>
+        <div class="input-group">
+      <span class="input-group-text bg-dark text-light"><i class="bi bi-chat-left-text"></i></span>
+    <%= form.text_area :message, class: 'form-control bg-dark text-light', data: { form_target: "message", action: "input->form#validateForm" } %>
+    <div class="invalid-feedback">Message must be at least 10 characters.</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :project_type, class: 'form-label text-light' %>
+     <div class="input-group">
+      <span class="input-group-text bg-dark text-light"><i class="bi bi-briefcase"></i></span>
+    <%= form.select :project_type, options_for_select(['web_development', 'web_consulting', 'web_partners'], customer.project_type), {}, class: 'form-select bg-dark text-light' %>
+  </div>
+  </div>
+
+  <%= form.submit 'Submit', class: 'btn btn-primary', data: { form_target: "submit" } %>
+<% end %>
