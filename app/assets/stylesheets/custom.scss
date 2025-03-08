@@ -1,0 +1,33 @@
+// Custom styles for the hero section
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('web1st.jpg'); // Add a background image
+    background-size: cover;
+    background-position: center;
+  }
+  
+  // Custom card styles
+  .card {
+    border: none;
+    transition: transform 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-10px);
+    }
+  }
+  
+  // Custom button styles
+  .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+  
+    &:hover {
+      background-color: #0b5ed7;
+      border-color: #0b5ed7;
+    }
+  }
+  
+  .btn-outline-light {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }

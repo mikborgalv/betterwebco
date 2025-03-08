@@ -5,36 +5,39 @@
     <%= form.label :name, class: 'form-label text-light' %>
     <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-person"></i></span>
-      <%= form.text_field :name, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:name].any?}", data: {form_target: "name"}, placeholder: "Joe Doe" %>
+      <%= form.text_field :name, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:name].any?}", data: {form_target: "name"}, placeholder: "Joe Doe", aria:{describeby: "nameHelp"} %>
     </div>
     <% if @customer.errors[:name].any? %>
-      <div class="invalid-feedback text-danger text-light"><span class="text-light"> please enter a valid name</span>
+      <div id="nameHelp" class="invalid-feedback text-danger text-light" role="alert" aria-live="polite"><span class="text-light">Please enter your full name</span>
         <%= @customer.errors[:name].join(", ") %>
       </div>
     <% end %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :email, class: 'form-label text-light' %>
+    <%= form.label :email, class: 'form-label text-light' %>  <span id="emailHelp" class="form-text text-light">  enter your email.  We'll never share your email with anyone else.</span>
     <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-envelope"></i></span>
-      <%= form.email_field :email, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:email].any?}",data: {form_target: "email"}, placeholder: "joe@example.com" %>
+      
+      <%= form.email_field :email, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:email].any?}",data: {form_target: "email"}, placeholder: "joe@example.com", aria: { describedby: "emailHelp" }  %>
+     
     </div>
     <% if @customer.errors[:email].any? %>
-      <div class="invalid-feedback text-danger error", data-form-target="email">
+      <div class="invalid-feedback text-danger", data-form-target="email">
         <%= @customer.errors[:email].join(", ") %>
       </div>
     <% end %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :message, class: 'form-label text-light' %>
+    <%= form.label :message, class: 'form-label text-light' %><span id="messageHelp" class="form-text text-light">  briefly tell us about your project here.</span>
     <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-chat-left-text"></i></span>
-      <%= form.text_area :message, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:message].any?}",data: {form_target: "message"}, placeholder: "Enter your message here (at least 10 characters)..." %>
+      <%= form.text_area :message, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:message].any?}",data: {form_target: "message"}, placeholder: "Enter your message here (at least 10 characters)...", aria: { describedby: "messageHelp" }  %>
+    
     </div>
     <% if @customer.errors[:message].any? %>
-      <div class="invalid-feedback text-danger">
+      <div class="invalid-feedback text-danger" role="alert" aria-live="polite">
         <%= @customer.errors[:message].join(", ") %>
       </div>
     <% end %>
@@ -49,7 +52,7 @@
   </div>
 
   <!-- Error message container -->
-  <div class="alert alert-danger d-none" data-form-target="error"></div>
+  <div class="alert alert-danger d-none" data-form-target="error" role="alert" aria-live="polite"></div>
 
   <%= form.submit 'Submit', class: 'btn btn-primary', data: { form_target: "submit" } %>
 <% end %>

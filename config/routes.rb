@@ -17,6 +17,6 @@
 
 # config/routes.rb
 Rails.application.routes.draw do
-  root "customers#new"
+  root "customers#index"
   resources :customers
 end

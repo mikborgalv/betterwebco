@@ -1,26 +1,75 @@
-<p style="color: green"><%= notice %></p>
-
-
-
-<h1>Customers</h1>
-
-
-
-
-
-<div class="card">
-  <div class="card-header">
-  <% content_for :title, "Customers" %>
-  </div>
-  <div class="card-body">
-   <div id="customers">
-  <% @customers.each do |customer| %>
-    <%= render customer %>
-    <p>
-      <%= link_to "Show this customer", customer %>
-    </p>
-  <% end %>
-</div>
-  <%= link_to "New customer", new_customer_path %>
+<!-- app/views/customers/index.html.erb -->
+<div class="hero-section bg-dark text-light vh-100 d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-4">Welcome to BetterWebco</h1>
+        <p class="lead mb-4">
+          Empowering small businesses, entrepreneurs, and individuals to thrive online. We create stunning, responsive websites that help you promote your services and sell your products with ease.
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+          <%= link_to "Get Started", new_customer_path, class: "btn btn-primary btn-lg" %>
+          <%= link_to "Learn More", "#services", class: "btn btn-outline-light btn-lg" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- Services Section -->
+<section id="services" class="py-5 bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="fw-bold mb-5">Our Services</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card bg-secondary text-light h-100">
+          <div class="card-body">
+            <h3 class="card-title fw-bold">Web Development</h3>
+            <p class="card-text">
+              Custom websites tailored to your business needs. Fast, responsive, and user-friendly.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card bg-secondary text-light h-100">
+          <div class="card-body">
+            <h3 class="card-title fw-bold">E-Commerce Solutions</h3>
+            <p class="card-text">
+              Build your online store and start selling your products to the world.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card bg-secondary text-light h-100">
+          <div class="card-body">
+            <h3 class="card-title fw-bold">SEO & Marketing</h3>
+            <p class="card-text">
+              Get found online with our search engine optimization and digital marketing services.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="py-5 bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="fw-bold mb-4">Ready to Grow Your Business Online?</h2>
+        <p class="lead mb-4">
+          Let’s build something amazing together. Contact us today to get started!
+        </p>
+        <%= link_to "Contact Us", new_customer_path, class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+  </div>
+</section>

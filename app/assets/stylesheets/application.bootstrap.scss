@@ -58,6 +58,17 @@ $danger: #adb5bd;
 
 }
 
+// app/assets/stylesheets/application.bootstrap.scss
+
+/* Custom focus styles */
+.form-control:focus {
+  border-color: #86b7fe; // Light blue border
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); // Bootstrap's default focus shadow
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); // Focus shadow for buttons
+}
 /* Ensure error messages are visible in dark theme */
 .bg-dark .invalid-feedback {
   color: #ff6b6b; // Light red for dark theme
@@ -69,11 +80,11 @@ $danger: #adb5bd;
 }
 
 .form-control::-webkit-input-placeholder { /* Chrome, Safari, Opera */
-  color: #6c757d;
+  color: #4a4e52;
 }
 
 .form-control::-moz-placeholder { /* Firefox */
-  color: #6c757d;
+  color: #40464b;
   opacity: 1;
 }
 
