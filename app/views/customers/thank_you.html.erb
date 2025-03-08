@@ -1,0 +1,35 @@
+<!-- Thank You Page -->
+<div class="thank-you-page vh-100 d-flex align-items-center" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('<%= asset_path('web1st.jpg') %>'); background-size: cover; background-position: center;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <!-- Card with white shadow and rounded border -->
+        <div class="card bg-dark text-light p-4 border border-light rounded shadow-lg">
+          <h1 class="display-4 fw-bold mb-4">Dear <%= @customer.name %>,</h1>
+          <p class="lead mb-4">
+            We recently reviewed the insights you shared with us, and let’s just say—we’re excited. Your thoughts aren’t just feedback; they’re the blueprint for something bigger.
+          </p>
+          <p class="mb-4">
+            At <strong>Betterwebco</strong>, we don’t just build websites; we craft digital experiences that drive real impact. Your input has given us a glimpse into what truly matters to you, and we’re eager to transform that vision into reality.
+          </p>
+          <p class="mb-4">
+            Let’s connect and explore how we can turn possibilities into results. Expect something unexpected.
+          </p>
+          <p class="mb-4">
+            Looking forward to it,<br>
+            <strong>Jose Miguel Galvan</strong><br>
+            Founder | Betterwebco
+          </p>
+          <p class="mb-4">
+            📧 <a href="mailto:info@betterwebco.com" class="text-light">info@betterwebco.com</a> | 🌐 <a href="https://www.betterwebco.com" class="text-light">www.betterwebco.com</a>
+          </p>
+          <!-- Phone icon -->
+          <div class="mt-4">
+            <i class="bi bi-telephone text-light me-2"></i>
+            <span class="text-light">(714) 864-1785</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,5 +18,8 @@
 # config/routes.rb
 Rails.application.routes.draw do
   root "customers#index"
-  resources :customers
+  get "customers/thank_you"
+  resources :customers, only: [:new, :create] do
+    get 'thank_you', on: :member # Add a route for the thank you page
+  end
 end

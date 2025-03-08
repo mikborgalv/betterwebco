@@ -24,12 +24,22 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      redirect_to root_path, notice: 'Thank you for your submission!'
+      redirect_to thank_you_customer_path(@customer) # Redirect to thank you page
     else
       puts @customer.errors.full_messages # Debugging
       render :new, status: :unprocessable_entity # Re-render the form with errors
     end
   end
+
+
+  def thank_you
+    @customer = Customer.find(params[:id]) # Find the customer by ID
+  end
+
+
+
+
+
 
   # PATCH/PUT /customers/1 or /customers/1.json
   def update

@@ -7,11 +7,14 @@
   
   // Custom card styles
   .card {
-    border: none;
-    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2); // Light border with transparency
+    border-radius: 15px; // Rounded corners
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); // White shadow
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   
     &:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px); // Slight lift on hover
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); // Stronger shadow on hover
     }
   }
   
@@ -31,3 +34,39 @@
       background-color: rgba(255, 255, 255, 0.1);
     }
   }
+
+  // Custom styles for the thank you page
+// Custom styles for the thank you page
+.thank-you-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('web1st.jpg'); // Add a background image
+  background-size: cover;
+  background-position: center;
+}
+
+// Card styles with white shadow
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+}
+
+// Link styles
+a.text-light {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Phone icon styles
+.bi-telephone {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
