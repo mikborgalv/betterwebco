@@ -13,9 +13,12 @@ gsap.registerPlugin(ScrollTrigger);
 // Hero section animations
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM fully loaded and parsed");
+
+
     const cards = document.querySelectorAll(".card");
-  
     const heroSection = document.querySelector(".hero-section");
+
+
     if (heroSection) {
       console.log("Hero section found:", heroSection);
   
@@ -49,6 +52,31 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       console.log("Hero section not found");
     }
+
+
+    const nameField = document.querySelector("input[name='customer[name]']");
+
+    if (nameField) {
+      // Remove Inputmask if it's causing the issue
+      if (nameField.inputmask) {
+        nameField.inputmask.remove(); // Remove the mask
+      }
+  
+      // Reapply Inputmask with correct configuration (if needed)
+      Inputmask({
+        regex: "^[A-Za-z]+( [A-Za-z]+)*$", // Allows only letters and spaces
+        placeholder: "Joe Doe", // Placeholder for the name field
+      }).mask(nameField);
+    }
+
+
+
+
+
+
+
+
+
   
     const servicesSection = document.querySelector("#services");
     if (servicesSection) {
