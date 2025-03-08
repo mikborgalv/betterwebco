@@ -1,14 +1,15 @@
 <!-- app/views/customers/_form.html.erb -->
 <%= form_with(model: customer, data: { controller: "form", action: "input->form#validateForm submit->form#submitForm turbo:submit-end->form#clearForm" }) do |form| %>
+  
   <div class="mb-3">
     <%= form.label :name, class: 'form-label text-light' %>
     <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-person"></i></span>
-      <%= form.text_field :name, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:name].any?}", placeholder: "Joe Doe" %>
+      <%= form.text_field :name, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:name].any?}", data: {form_target: "name"}, placeholder: "Joe Doe" %>
     </div>
-    <% if customer.errors[:name].any? %>
-      <div class="invalid-feedback text-danger">
-        <%= customer.errors[:name].join(", ") %>
+    <% if @customer.errors[:name].any? %>
+      <div class="invalid-feedback text-danger text-light"><span class="text-light"> please enter a valid name</span>
+        <%= @customer.errors[:name].join(", ") %>
       </div>
     <% end %>
   </div>
@@ -17,11 +18,11 @@
     <%= form.label :email, class: 'form-label text-light' %>
     <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-envelope"></i></span>
-      <%= form.email_field :email, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:email].any?}", placeholder: "joe@example.com" %>
+      <%= form.email_field :email, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:email].any?}",data: {form_target: "email"}, placeholder: "joe@example.com" %>
     </div>
-    <% if customer.errors[:email].any? %>
-      <div class="invalid-feedback text-danger">
-        <%= customer.errors[:email].join(", ") %>
+    <% if @customer.errors[:email].any? %>
+      <div class="invalid-feedback text-danger error", data-form-target="email">
+        <%= @customer.errors[:email].join(", ") %>
       </div>
     <% end %>
   </div>
@@ -30,11 +31,11 @@
     <%= form.label :message, class: 'form-label text-light' %>
     <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-chat-left-text"></i></span>
-      <%= form.text_area :message, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:message].any?}", placeholder: "Enter your message here (at least 10 characters)..." %>
+      <%= form.text_area :message, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:message].any?}",data: {form_target: "message"}, placeholder: "Enter your message here (at least 10 characters)..." %>
     </div>
-    <% if customer.errors[:message].any? %>
+    <% if @customer.errors[:message].any? %>
       <div class="invalid-feedback text-danger">
-        <%= customer.errors[:message].join(", ") %>
+        <%= @customer.errors[:message].join(", ") %>
       </div>
     <% end %>
   </div>

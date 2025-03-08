@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  # before_action :set_customer, only: %i[ show edit update destroy ]
+  before_action :set_customer, only: %i[ show edit update destroy ]
 
   # GET /customers or /customers.json
   def index
@@ -26,6 +26,7 @@ class CustomersController < ApplicationController
     if @customer.save
       redirect_to root_path, notice: 'Thank you for your submission!'
     else
+      puts @customer.errors.full_messages # Debugging
       render :new, status: :unprocessable_entity # Re-render the form with errors
     end
   end

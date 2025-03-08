@@ -19,7 +19,7 @@ export default class extends Controller {
 
     // Initialize Inputmask for the email field
     new Inputmask({
-      alias: "email", // Built-in email mask
+      // alias: "email", // Built-in email mask
       placeholder: "joe@example.com", // Placeholder for the email field
     }).mask(this.emailTarget)
 
@@ -39,9 +39,13 @@ export default class extends Controller {
     this.submitTarget.disabled = !(isNameValid && isEmailValid && isMessageValid)
   }
 
-  validateEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return regex.test(email)
+  validateEmail() {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.emailTarget.value)) {
+      this.emailTarget.classList.add("is-invalid");
+    } else {
+      this.emailTarget.classList.remove("is-invalid");
+    }
   }
 
   toggleValidationClass(field, isValid) {
