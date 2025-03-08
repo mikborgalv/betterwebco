@@ -57,7 +57,20 @@ $danger: #adb5bd;
   z-index: 50;
 
 }
+// Custom card hover effects
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Custom icon styles
+.bi {
+  color: #0d6efd; // Bootstrap primary color
+}
 // app/assets/stylesheets/application.bootstrap.scss
 
 /* Custom focus styles */
@@ -94,6 +107,19 @@ $danger: #adb5bd;
 
 .form-control::placeholder { /* Modern browsers */
   color: #6c757d;
+}
+
+// Ensure cards are aligned horizontally
+#services .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#services .card {
+  flex: 1 1 30%; // Adjust the width of each card
+  margin: 1%; // Add margin between cards
+  min-width: 300px; // Ensure cards don't get too small
 }
 
 @import 'bootstrap/scss/bootstrap';

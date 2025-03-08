@@ -2,10 +2,10 @@
 <%= form_with(model: customer, data: { controller: "form", action: "input->form#validateForm submit->form#submitForm turbo:submit-end->form#clearForm" }) do |form| %>
   
   <div class="mb-3">
-    <%= form.label :name, class: 'form-label text-light' %>
+    <%= form.label :name, class: 'form-label text-light' %><span id="nameHelp" class="form-text text-light">  enter your first and last name</span>
     <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-person"></i></span>
-      <%= form.text_field :name, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:name].any?}", data: {form_target: "name"}, placeholder: "Joe Doe", aria:{describeby: "nameHelp"} %>
+      <%= form.text_field :name, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:name].any?}", data: {form_target: "name"}, placeholder: "Your Name", aria:{describeby: "nameHelp"} %>
     </div>
     <% if @customer.errors[:name].any? %>
       <div id="nameHelp" class="invalid-feedback text-danger text-light" role="alert" aria-live="polite"><span class="text-light">Please enter your full name</span>
@@ -19,7 +19,7 @@
     <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-envelope"></i></span>
       
-      <%= form.email_field :email, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:email].any?}",data: {form_target: "email"}, placeholder: "joe@example.com", aria: { describedby: "emailHelp" }  %>
+      <%= form.email_field :email, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:email].any?}",data: {form_target: "email"}, placeholder: "Your@email.com", aria: { describedby: "emailHelp" }  %>
      
     </div>
     <% if @customer.errors[:email].any? %>

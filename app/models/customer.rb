@@ -1,6 +1,6 @@
 # app/models/customer.rb
 class Customer < ApplicationRecord
-  validates :name, presence: true, length: { minimum: 2 }
+  validates :name, presence: true, length: { minimum: 8 }
   validates :message, presence: true, length: { minimum: 10 }
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :project_type, inclusion: { in: %w[web_development web_consulting web_partners] }

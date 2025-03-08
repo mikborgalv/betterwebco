@@ -14,13 +14,13 @@ export default class extends Controller {
     // Initialize Inputmask for the name field
     new Inputmask({
       regex: "^[A-Za-z]+( [A-Za-z]+)*$", // Allows only letters and spaces
-      placeholder: "Joe Doe", // Placeholder for the name field
+      placeholder: "", // Placeholder for the name field
     }).mask(this.nameTarget)
 
     // Initialize Inputmask for the email field
     new Inputmask({
       // alias: "email", // Built-in email mask
-      placeholder: "joe@example.com", // Placeholder for the email field
+      placeholder: "Your@email.com", // Placeholder for the email field
     }).mask(this.emailTarget)
 
     // Placeholder for message (no strict mask)
