@@ -9,7 +9,6 @@ bundle install
 
 # Precompile assets
 bundle exec rails assets:precompile
-budnle exec rails assets:clean
 
 # Run migrations (if applicable)
 bundle exec rails db:migrate
