@@ -2,16 +2,6 @@
 # and seeing results in the browser, you must do so from the web console (running inside the dev process),
 # not a terminal started via bin/rails console! Add "console" to any action or any ERB template view
 # to make the web console appear.
-development:
- adapter: postgresql
-  database: <%= ENV['DATABASE_NAME'] %>
-  username: <%= ENV['DATABASE_USER'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  host: <%= ENV['DATABASE_HOST'] %>
-
-test:
-  adapter: test
-
 production:
   adapter: postgresql
   database: <%= ENV['DATABASE_NAME'] %>
