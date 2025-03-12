@@ -19,6 +19,10 @@
 Rails.application.routes.draw do
   root "customers#index"
   get "customers/thank_you"
+
+  get "static_pages/our_services"
+
+
   resources :customers, only: [:new, :create] do
     get 'thank_you', on: :member # Add a route for the thank you page
   end

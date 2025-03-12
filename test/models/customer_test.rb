@@ -1,7 +1,26 @@
 require "test_helper"
 
 class CustomerTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should not save customer without message" do
+    customer = Customer.new
+    assert_not customer.save, "Saved the customer without a message"
+   end
+
+   test "should not save customer without name" do
+    customer = Customer.new
+    assert_not customer.save, "Saved the customer without a name"
+   end
+
+   test "should report customer form error" do 
+    
+
+
+
+
+
+
+
+
+
+
 end

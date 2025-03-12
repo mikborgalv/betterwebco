@@ -25,7 +25,11 @@
  <body class="bg-dark text-light">
   <div class="container">
   <div class="alert alert-danger d-none" data-form-target="error"></div>
+<%= render "partials/header" %>
+
     <%= yield %>
+
+<%= render "partials/footer" %>
   </div>
 </body>
 </html>

@@ -1,0 +1,98 @@
+   <!-- Technology Cards Section -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="fw-bold mb-5">What Comes With Our Projects</h2>
+      </div>
+    </div>
+    <div class="row" data-thank-you-target="cards">
+      <% technologies = [
+        {
+          title: "Ruby",
+          description: "The programming language that powers Rails. Ruby is known for its simplicity and developer-friendly syntax.",
+          icon: "bi-gem"
+        },
+        {
+          title: "Ruby on Rails (Rails Framework)",
+          description: "A full-stack web framework that provides tools for building scalable, maintainable web applications using the MVC (Model-View-Controller) architecture.",
+          icon: "bi-layers"
+        },
+        {
+          title: "SQLite / PostgreSQL / MySQL (Database)",
+          description: "SQLite (default for development) is a lightweight database for local development. PostgreSQL and MySQL are commonly used for production due to scalability and performance.",
+          icon: "bi-database"
+        },
+        {
+          title: "ERB or Frontend Frameworks (HTML/CSS/JS)",
+          description: "ERB: Default templating system for rendering dynamic HTML with embedded Ruby. HTML/CSS: Essential for structuring and styling web pages. JavaScript (JS): Adds interactivity and dynamic behavior to web apps.",
+          icon: "bi-code-square"
+        },
+        {
+          title: "Stimulus / Turbo (Frontend Enhancements)",
+          description: "Stimulus.js: A lightweight JavaScript framework for adding small, reactive UI behaviors. Turbo (Hotwire): Speeds up page loads by replacing traditional JavaScript-heavy solutions with server-driven updates.",
+          icon: "bi-lightning"
+        },
+        {
+          title: "Devise (Authentication & Authorization)",
+          description: "A widely used Ruby gem for user authentication, handling sign-up, login, and password management.",
+          icon: "bi-shield-lock"
+        },
+        {
+          title: "Active Record (ORM – Object-Relational Mapping)",
+          description: "Rails’ built-in ORM that simplifies database interactions using Ruby objects instead of raw SQL queries.",
+          icon: "bi-table"
+        },
+        {
+          title: "RSpec / MiniTest (Testing Frameworks)",
+          description: "RSpec: A behavior-driven testing framework for writing clear, human-readable tests. MiniTest: A lightweight alternative included in Rails by default.",
+          icon: "bi-check-circle"
+        },
+        {
+          title: "Webpack / esbuild (JavaScript Bundling)",
+          description: "Webpack: Previously used for managing and bundling JavaScript assets in Rails. esbuild: A modern, faster alternative for compiling JavaScript and CSS in Rails 7+.",
+          icon: "bi-box"
+        },
+        {
+          title: "Puma (Web Server)",
+          description: "The default web server in Rails that efficiently handles multiple requests for better performance.",
+          icon: "bi-server"
+        },
+        {
+          title: "Sidekiq (Background Jobs Processing)",
+          description: "A background job processing system for handling tasks like email sending and data processing asynchronously.",
+          icon: "bi-clock"
+        },
+        {
+          title: "Redis (Caching & Session Storage)",
+          description: "An in-memory data store used for caching and speeding up database queries, as well as storing session data.",
+          icon: "bi-speedometer"
+        },
+        {
+          title: "Bootstrap / Tailwind CSS (CSS Frameworks)",
+          description: "Bootstrap: A popular CSS framework with ready-to-use UI components. Tailwind CSS: A utility-first CSS framework for highly customizable designs (default in Rails 7 with --css=tailwind).",
+          icon: "bi-palette"
+        },
+        {
+          title: "Action Mailer (Email Handling)",
+          description: "Built-in Rails tool for sending emails, often used with SendGrid, Mailgun, or Postmark.",
+          icon: "bi-envelope"
+        },
+        {
+          title: "Git / GitHub / GitLab (Version Control & Collaboration)",
+          description: "Git: A version control system for tracking changes in code. GitHub / GitLab: Platforms for hosting repositories and collaborating with teams.",
+          icon: "bi-git"
+        }
+      ] %>
+
+      <% technologies.each do |tech| %>
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card bg-dark text-light h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi <%= tech[:icon] %> display-6 me-3" style="color: #86b7fe;"></i> <!-- Lighter blue color -->
+                <h3 class="card-title fw-bold mb-0"><%= tech[:title] %></h3>
+              </div>
+              <p class="card-text"><%= tech[:description] %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>

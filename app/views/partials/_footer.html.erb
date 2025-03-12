@@ -1,0 +1,61 @@
+<!-- app/views/partials/_footer.html.erb -->
+<footer class="footer bg-dark text-light py-5" aria-label="Footer">
+  <div class="container">
+    <div class="row">
+      <!-- Brand and Map Link -->
+      <div class="col-md-4 mb-4">
+        <%= link_to root_path, class: "d-flex align-items-center text-decoration-none text-light", aria: { label: "Home" } do %>
+          <%# = image_tag "betterwebco_logo.png", alt: "BetterWebCo Logo", class: "me-2", width: "30" %>
+          <span class="h5 mb-0">BetterWebCo</span>
+        <% end %>
+      </div>
+
+      <!-- Services Link -->
+      <div class="col-md-4 mb-4">
+        <h5 class="mb-3">Our Services</h5>
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to "All Service Cards", static_pages_our_services_path, class: "text-light text-decoration-none", aria: { label: "View all service cards" } %>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="col-md-4 mb-4">
+        <h5 class="mb-3">Contact Us</h5>
+        <ul class="list-unstyled">
+          <li>
+            <%= mail_to "miguelborquez7@gmail.com", class: "text-light text-decoration-none", aria: { label: "Email BetterWebCo" } do %>
+              <i class="fas fa-envelope me-2"></i>info@betterwebco.com
+            <% end %>
+          </li>
+          <li>
+            <i class="fas fa-phone me-2"></i>+1 (555) 123-4567
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Search and FAQ Section -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="input-group mb-3" data-controller="search">
+          <input
+            type="text"
+            class="form-control bg-transparent text-light border-light"
+            placeholder="Search FAQs..."
+            aria-label="Search FAQs"
+            data-search-target="input"
+            data-action="input->search#search"
+          />
+          <button class="btn btn-outline-light" type="button" aria-label="Search">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <div id="faq-results" class="mt-3" data-search-target="results">
+          <!-- FAQ Results will be displayed here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
