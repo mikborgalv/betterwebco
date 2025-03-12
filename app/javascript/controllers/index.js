@@ -9,3 +9,6 @@ application.register("form", FormController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import ThankYouController from "./thank_you_controller"
+application.register("thank-you", ThankYouController)

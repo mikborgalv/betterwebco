@@ -70,13 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
-
-
-
-
-
-
   
     const servicesSection = document.querySelector("#services");
     if (servicesSection) {

@@ -38,21 +38,35 @@
   // Custom styles for the thank you page
 // Custom styles for the thank you page
 .thank-you-page {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('web1st.jpg'); // Add a background image
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), asset-url('thank-you-background.jpg');
   background-size: cover;
   background-position: center;
+  padding-top: 10vh; // Center the hero section vertically
+  padding-bottom: 2rem; // Add padding to the bottom for smaller screens
 }
 
-// Card styles with white shadow
+// Card styles with transparency, white shadow, and rounded border
 .card {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2); // Light border with transparency
+  border-radius: 15px; // Rounded corners
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); // White shadow
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px); // Slight lift on hover
+  }
+}
+
+// Lighter blue icon color
+.bi {
+  color: #86b7fe; // Lighter blue color
+}
+
+// Responsive padding for smaller screens
+@media (max-width: 768px) {
+  .thank-you-page {
+    padding-top: 5vh; // Adjust padding for smaller screens
+    padding-bottom: 1rem; // Adjust padding for smaller screens
   }
 }
 
@@ -65,8 +79,22 @@ a.text-light {
   }
 }
 
+
 // Phone icon styles
 .bi-telephone {
   font-size: 1.5rem;
   vertical-align: middle;
+}
+
+.bi {
+  color: #86b7fe; // Lighter blue color
+}
+
+
+// Responsive padding for smaller screens
+@media (max-width: 768px) {
+  .thank-you-page {
+    padding-top: 5vh; // Adjust padding for smaller screens
+    padding-bottom: 1rem; // Adjust padding for smaller screens
+  }
 }
