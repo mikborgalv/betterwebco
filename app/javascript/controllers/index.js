@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AccordionAnimationsController from "./accordion_animations_controller"
+application.register("accordion-animations", AccordionAnimationsController)
+
 import FormController from "./form_controller"
 application.register("form", FormController)
 
