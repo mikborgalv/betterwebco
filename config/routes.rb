@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   get "static_pages/our_services"
   get "static_pages/our_process"
-  get 'static_pages/faqs.json', to: 'faqs#index'
+  get 'faqs.json', to: 'faqs#index'
   get "static_pages/search"
 
 

@@ -200,6 +200,30 @@ a.text-light {
   width: 300px !important;
 }
 
+/* app/assets/stylesheets/application.css */
+
+/* Footer Styles */
+.footer {
+  border-top: 1px solid #444;
+}
+
+.footer a:hover {
+  color: #0d6efd !important; /* Bootstrap primary color */
+  text-decoration: underline;
+}
+
+.footer .list-unstyled li {
+  margin-bottom: 10px;
+}
+
+.footer .fab {
+  transition: transform 0.2s ease-in-out;
+}
+
+.footer .fab:hover {
+  transform: scale(1.2);
+}
+
 // Responsive padding for smaller screens
 @media (max-width: 768px) {
   .thank-you-page {

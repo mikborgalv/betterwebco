@@ -1,22 +1,25 @@
 // app/javascript/controllers/search_controller.js
 import { Controller } from "@hotwired/stimulus"
-// app/javascript/controllers/search_controller.js
+// import { debounce } from "lodash";
+
 
 export default class extends Controller {
   static targets = ["input", "results"];
 
-  // FAQ Data (can be moved to a JSON file or backend API)
+  // FAQ Data (fetched from JSON file)
   faqs = [];
 
   // Connect lifecycle method
   connect() {
+    // this.search = debounce(this.search.bind(this), 300);
     this.fetchFAQs();
+    this.setupEventListeners();
   }
 
-  // Fetch FAQs from the backend
+  // Fetch FAQs from the JSON file
   async fetchFAQs() {
     try {
-      const response = await fetch("/faqs.json"); // Replace with your backend endpoint
+      const response = await fetch("/faqs.json"); // Path to your JSON file
       this.faqs = await response.json();
     } catch (error) {
       console.error("Failed to fetch FAQs:", error);
@@ -24,48 +27,67 @@ export default class extends Controller {
     }
   }
 
-  // Search functionality
-  search() {
-    const query = this.inputTarget.value.toLowerCase();
-    const filteredFAQs = this.faqs.filter(faq =>
-      faq.question.toLowerCase().includes(query) || faq.answer.toLowerCase().includes(query)
-    );
-
-    this.displayResults(filteredFAQs, query);
+// app/javascript/controllers/search_controller.js
+displayResults(faqs, query) {
+  if (faqs.length === 0) {
+    this.resultsTarget.innerHTML = `<p class="text-light">No results found.</p>`;
+    return;
   }
 
-  // Display results
-  displayResults(faqs, query) {
-    if (faqs.length === 0) {
-      this.resultsTarget.innerHTML = `<p class="text-light">No results found.</p>`;
-      return;
-    }
+  // Limit results to 3
+  const limitedFAQs = faqs.slice(0, 3);
 
-    const resultsHTML = faqs.map(faq => `
-      <div class="card bg-dark text-light border-light mb-3">
-        <div class="card-body">
-          <h6 class="card-title">${this.highlightMatches(faq.question, query)}</h6>
-          <p class="card-text">${this.highlightMatches(faq.answer, query)}</p>
-        </div>
+  // Use let instead of const
+  let resultsHTML = limitedFAQs.map(faq => `
+    <div class="card bg-dark text-light border-light mb-3">
+      <div class="card-body">
+        <h6 class="card-title">${this.highlightMatches(faq.question, query)}</h6>
+        <p class="card-text">${this.highlightMatches(faq.answer, query)}</p>
       </div>
-    `).join("");
+    </div>
+  `).join("");
 
-    this.resultsTarget.innerHTML = resultsHTML;
+  // Add "View More" button if there are more than 3 results
+  if (faqs.length > 3) {
+    resultsHTML += `
+      <button class="btn btn-outline-light w-100" data-action="click->search#showAllResults">
+        View More (${faqs.length - 3} more)
+      </button>
+    `;
   }
 
-  // Highlight matches in text
-  highlightMatches(text, query) {
-    if (!query) return text;
-    const regex = new RegExp(`(${query})`, "gi");
-    return text.replace(regex, '<span class="highlight">$1</span>');
-  }
-  // Clear results when the input loses focus
+  this.resultsTarget.innerHTML = resultsHTML;
+}
+
+// Show all results
+showAllResults() {
+  const query = this.inputTarget.value.toLowerCase();
+  const filteredFAQs = this.faqs.filter(faq =>
+    faq.question.toLowerCase().includes(query) || faq.answer.toLowerCase().includes(query)
+  );
+
+  const resultsHTML = filteredFAQs.map(faq => `
+    <div class="card bg-dark text-light border-light mb-3">
+      <div class="card-body">
+        <h6 class="card-title">${this.highlightMatches(faq.question, query)}</h6>
+        <p class="card-text">${this.highlightMatches(faq.answer, query)}</p>
+      </div>
+    </div>
+  `).join("");
+
+  this.resultsTarget.innerHTML = resultsHTML;
+}
+  // Auto-clear results when input loses focus
   clearResults() {
     setTimeout(() => {
       if (!this.inputTarget.matches(":focus")) {
         this.resultsTarget.innerHTML = "";
-        this.inputTarget.value = "";
       }
     }, 200); // Small delay to allow click events on results
+  }
+
+  // Setup event listeners
+  setupEventListeners() {
+    this.inputTarget.addEventListener("focusout", () => this.clearResults());
   }
 }

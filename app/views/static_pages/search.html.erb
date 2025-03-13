@@ -4,28 +4,26 @@
       <div class="col-lg-8 mx-auto text-center">
         <h1 class="display-4 fw-bold mb-4">Got questions ? </h1>
         <p class="lead mb-4">
-         Look up at our most frequent questions from clients.
+         Look up at our most frequent questions from clients.<br> <%= link_to "Submit yours", new_customer_path, class: "small" %>
         </p>
-<<!-- Search and FAQ Section -->
+<!-- Search and FAQ Section -->
 <div class="row mt-4" data-controller="search">
   <div class="col-12 position-relative">
     <!-- Search Input and Button -->
-   <div class="input-group mb-3 position-absolute" style="top: 0; left: 50%; transform: translateX(-50%); z-index: 1000;">
-  <input
-    type="text"
-    class="form-control bg-transparent text-light border-light w-300px"
-    placeholder="Search FAQs..."
-    aria-label="Search FAQs"
-    data-search-target="input"
-    data-action="input->search#search focusout->search#clearResults"
-  />
-  <button class="btn btn-outline-light" type="button" aria-label="Search">
-    <i class="fas fa-search"></i>
-  </button>
-  <button class="btn btn-outline-danger" type="button" aria-label="Clear" data-action="click->search#clearInput">
-    <i class="fas fa-times"></i>
-  </button>
-</div>
+    <div class="input-group mb-3 position-absolute" style="top: 0; left: 50%; transform: translateX(-50%); z-index: 1000;">
+      <input
+        type="text"
+        class="form-control bg-transparent text-light border-light w-300px"
+        placeholder="Search FAQs..."
+        aria-label="Search FAQs"
+        data-search-target="input"
+        data-action="input->search#search focusout->search#clearResults"
+      />
+      <button class="btn btn-outline-light" type="button" aria-label="Search">
+    
+       Clear
+      </button>
+    </div>
 
     <!-- FAQ Results -->
     <div id="faq-results" class="mt-3 position-relative" data-search-target="results" style="top: 60px; width: 100%; max-width: 800px;">
