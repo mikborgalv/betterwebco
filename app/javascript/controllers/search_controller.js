@@ -1,7 +1,5 @@
 // app/javascript/controllers/search_controller.js
 import { Controller } from "@hotwired/stimulus"
-// import { debounce } from "lodash";
-
 
 export default class extends Controller {
   static targets = ["input", "results"];
@@ -11,7 +9,6 @@ export default class extends Controller {
 
   // Connect lifecycle method
   connect() {
-    // this.search = debounce(this.search.bind(this), 300);
     this.fetchFAQs();
     this.setupEventListeners();
   }
@@ -27,56 +24,45 @@ export default class extends Controller {
     }
   }
 
-// app/javascript/controllers/search_controller.js
-displayResults(faqs, query) {
-  if (faqs.length === 0) {
-    this.resultsTarget.innerHTML = `<p class="text-light">No results found.</p>`;
-    return;
+  // Search functionality
+  search() {
+    const query = this.inputTarget.value.toLowerCase();
+    const filteredFAQs = this.faqs.filter(faq =>
+      faq.question.toLowerCase().includes(query) || faq.answer.toLowerCase().includes(query)
+    );
+
+    this.displayResults(filteredFAQs, query);
   }
 
-  // Limit results to 3
-  const limitedFAQs = faqs.slice(0, 3);
+  // Display results (limit to 3 at a time)
+  displayResults(faqs, query) {
+    if (faqs.length === 0) {
+      this.resultsTarget.innerHTML = `<p class="text-light">No results found.</p>`;
+      return;
+    }
 
-  // Use let instead of const
-  let resultsHTML = limitedFAQs.map(faq => `
-    <div class="card bg-dark text-light border-light mb-3">
-      <div class="card-body">
-        <h6 class="card-title">${this.highlightMatches(faq.question, query)}</h6>
-        <p class="card-text">${this.highlightMatches(faq.answer, query)}</p>
+    // Limit results to 3
+    const limitedFAQs = faqs.slice(0, 3);
+
+    const resultsHTML = limitedFAQs.map(faq => `
+      <div class="card bg-dark text-light border-light mb-3">
+        <div class="card-body">
+          <h6 class="card-title">${this.highlightMatches(faq.question, query)}</h6>
+          <p class="card-text">${this.highlightMatches(faq.answer, query)}</p>
+        </div>
       </div>
-    </div>
-  `).join("");
+    `).join("");
 
-  // Add "View More" button if there are more than 3 results
-  if (faqs.length > 3) {
-    resultsHTML += `
-      <button class="btn btn-outline-light w-100" data-action="click->search#showAllResults">
-        View More (${faqs.length - 3} more)
-      </button>
-    `;
+    this.resultsTarget.innerHTML = resultsHTML;
   }
 
-  this.resultsTarget.innerHTML = resultsHTML;
-}
+  // Highlight matches in text
+  highlightMatches(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(`(${query})`, "gi");
+    return text.replace(regex, '<span class="highlight">$1</span>');
+  }
 
-// Show all results
-showAllResults() {
-  const query = this.inputTarget.value.toLowerCase();
-  const filteredFAQs = this.faqs.filter(faq =>
-    faq.question.toLowerCase().includes(query) || faq.answer.toLowerCase().includes(query)
-  );
-
-  const resultsHTML = filteredFAQs.map(faq => `
-    <div class="card bg-dark text-light border-light mb-3">
-      <div class="card-body">
-        <h6 class="card-title">${this.highlightMatches(faq.question, query)}</h6>
-        <p class="card-text">${this.highlightMatches(faq.answer, query)}</p>
-      </div>
-    </div>
-  `).join("");
-
-  this.resultsTarget.innerHTML = resultsHTML;
-}
   // Auto-clear results when input loses focus
   clearResults() {
     setTimeout(() => {
