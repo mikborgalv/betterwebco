@@ -1,21 +1,36 @@
-<!-- app/views/customers/index.html.erb -->
-<div class="hero-section bg-dark text-light vh-100 d-flex align-items-center"  style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('<%= asset_path('web1st.jpg') %>'); background-size: cover; background-position: center;">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto text-center">
-        <h1 class="display-4 fw-bold mb-4">Welcome to BetterWebco</h1>
-        <p class="lead mb-4">
-          Empowering small businesses, entrepreneurs, and individuals to thrive online. We create stunning, responsive websites that help you promote your services and sell your products with ease.
-        </p>
-        <div class="d-flex justify-content-center gap-3">
-          <%= link_to "Get Started", new_customer_path, class: "btn btn-primary btn-lg" %>
-          <%= link_to "Learn More", "#services", class: "btn btn-outline-light btn-lg" %>
+<!-- Hero Section -->
+<div class="hero-section">
+  <!-- Preload hero image -->
+  <%= tag.link rel: "preload", href: asset_path('web1st.jpg'), as: "image", media: "(min-width: 600px)" %>
+  
+  <!-- Background image with optimized loading -->
+  <picture>
+    <!-- WebP version for supported browsers -->
+    <source srcset="<%= asset_path('web1st.webp') %>" type="image/webp">
+    <!-- Fallback JPEG -->
+    <source srcset="<%= asset_path('web1st.jpg') %>" type="image/jpeg">
+    <!-- Fallback img element -->
+    <img src="<%= asset_path('web1st.jpg') %>" alt="" class="hero-bg" loading="lazy" decoding="async">
+  </picture>
+  
+  <!-- Content container -->
+  <div class="hero-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeIn">Welcome to BetterWebco</h1>
+          <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">
+            Empowering small businesses, entrepreneurs, and individuals to thrive online.
+          </p>
+          <div class="d-flex justify-content-center gap-3 animate__animated animate__fadeIn animate__delay-2s">
+            <%= link_to "Get Started", new_customer_path, class: "btn btn-primary btn-lg" %>
+            <%= link_to "Learn More", "#services", class: "btn btn-outline-light btn-lg" %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <!-- Services Section -->
 <section id="services" class="py-5 bg-dark text-light">
   <div class="container">
