@@ -1,69 +1,88 @@
-<!-- Hero Section -->
-<div class="hero-section">
-  <!-- Preload hero image -->
-  <%= tag.link rel: "preload", href: asset_path('web1st.jpg'), as: "image", media: "(min-width: 600px)" %>
-  
-  <!-- Background image with optimized loading -->
-  <picture>
-    <!-- WebP version for supported browsers -->
-    <source srcset="<%= asset_path('web1st.webp') %>" type="image/webp">
-    <!-- Fallback JPEG -->
-    <source srcset="<%= asset_path('web1st.jpg') %>" type="image/jpeg">
-    <!-- Fallback img element -->
-    <img src="<%= asset_path('web1st.jpg') %>" alt="" class="hero-bg" loading="lazy" decoding="async">
-  </picture>
-  
-  <!-- Content container -->
-  <div class="hero-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeIn">Welcome to BetterWebco</h1>
+<!-- Hero Section with Responsive Layout -->
+<div class="hero-container">
+  <div class="container-fluid px-0">
+    <div class="row g-0 align-items-stretch">
+      <!-- Content Column - Shows first on mobile -->
+      <div class="col-lg-6 order-lg-2 hero-content-col d-flex align-items-center">
+        <div class="hero-content p-4 p-lg-5">
+          <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeIn">Welcome to BetterWebco</h1>
           <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">
             Empowering small businesses, entrepreneurs, and individuals to thrive online.
           </p>
-          <div class="d-flex justify-content-center gap-3 animate__animated animate__fadeIn animate__delay-2s">
-            <%= link_to "Get Started", new_customer_path, class: "btn btn-primary btn-lg" %>
-            <%= link_to "Learn More", "#services", class: "btn btn-outline-light btn-lg" %>
+          <div class="d-flex flex-wrap justify-content-center gap-3 animate__animated animate__fadeIn animate__delay-2s">
+            <%= link_to "Get Started", new_customer_path, class: "btn btn-primary btn-lg px-4" %>
+            <%= link_to "Learn More", "#services", class: "btn btn-outline-light btn-lg px-4" %>
           </div>
         </div>
+      </div>
+      
+      <!-- Image Column - Shows second on mobile -->
+      <div class="col-lg-6 order-lg-1 hero-image-col">
+        <picture>
+          <!-- Responsive image sources -->
+          <source media="(min-width: 992px)" srcset="<%= asset_path('web1st.webp') %>" type="image/webp">
+          <source media="(min-width: 992px)" srcset="<%= asset_path('web1st.jpg') %>" type="image/jpeg">
+          <source srcset="<%= asset_path('web1st.webp') %>" type="image/webp">
+          <!-- Fallback -->
+          <img src="<%= asset_path('web1st.jpg') %>" 
+               alt="BetterWebco services" 
+               class="hero-image img-fluid w-100 h-100 object-fit-cover"
+               loading="eager"
+               width="1200"
+               height="800">
+        </picture>
       </div>
     </div>
   </div>
 </div>
+
 <!-- Services Section -->
 <section id="services" class="py-5 bg-dark text-light">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="fw-bold mb-5">Let's build something amazing</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-8 text-center">
+        <h2 class="display-5 fw-bold mb-5">Let's build something amazing</h2>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4 mb-4">
-        <div class="card bg-secondary text-light h-100">
-          <div class="card-body">
-            <h3 class="card-title fw-bold">Web Development</h3>
+    <div class="row g-4">
+      <!-- Web Development Card -->
+      <div class="col-md-4">
+        <div class="card bg-secondary text-light h-100 border-0 shadow-sm transition-all">
+          <div class="card-body p-4">
+            <div class="icon-wrapper mb-3">
+              <i class="bi bi-code-slash fs-1 text-primary"></i>
+            </div>
+            <h3 class="card-title fw-bold h4">Web Development</h3>
             <p class="card-text">
               Custom websites tailored to your business needs. Fast, responsive, and user-friendly.
             </p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <div class="card bg-secondary text-light h-100">
-          <div class="card-body">
-            <h3 class="card-title fw-bold">E-Commerce Solutions</h3>
+      
+      <!-- E-Commerce Card -->
+      <div class="col-md-4">
+        <div class="card bg-secondary text-light h-100 border-0 shadow-sm transition-all">
+          <div class="card-body p-4">
+            <div class="icon-wrapper mb-3">
+              <i class="bi bi-cart fs-1 text-primary"></i>
+            </div>
+            <h3 class="card-title fw-bold h4">E-Commerce Solutions</h3>
             <p class="card-text">
               Build your online store and start selling your products to the world.
             </p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <div class="card bg-secondary text-light h-100">
-          <div class="card-body">
-            <h3 class="card-title fw-bold">SEO & Marketing</h3>
+      
+      <!-- SEO Card -->
+      <div class="col-md-4">
+        <div class="card bg-secondary text-light h-100 border-0 shadow-sm transition-all">
+          <div class="card-body p-4">
+            <div class="icon-wrapper mb-3">
+              <i class="bi bi-graph-up fs-1 text-primary"></i>
+            </div>
+            <h3 class="card-title fw-bold h4">SEO & Marketing</h3>
             <p class="card-text">
               Get found online with our search engine optimization and digital marketing services.
             </p>
@@ -75,18 +94,20 @@
 </section>
 
 <!-- Call to Action Section -->
-<section class="py-5 bg-dark text-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto text-center">
-        <h2 class="fw-bold mb-4">Ready to Grow Your Business Online?</h2>
-        <p class="lead mb-4">
-          Let’s build something amazing together. Contact us today to get started!
+<section class="py-5 bg-dark text-light position-relative overflow-hidden">
+  <div class="container position-relative z-index-3">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-5 fw-bold mb-4">Ready to Grow Your Business Online?</h2>
+        <p class="lead mb-5">
+          Let's build something amazing together. Contact us today to get started!
         </p>
-        <%= link_to "Contact Us", new_customer_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "Contact us", new_customer_path, class: "btn btn-primary btn-lg px-4" %>
+
+        
       </div>
     </div>
   </div>
+  <%# <div class="position-absolute top-0 start-0 w-100 h-100 bg-pattern opacity-10 z-index-0"></div> %>
 </section>
-
 
