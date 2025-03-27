@@ -20,11 +20,11 @@
       <div class="col-lg-6 order-lg-1 hero-image-col">
         <picture>
           <!-- Responsive image sources -->
-          <source media="(min-width: 992px)" srcset="<%= asset_path('web1st.webp') %>" type="image/webp">
-          <source media="(min-width: 992px)" srcset="<%= asset_path('web1st.jpg') %>" type="image/jpeg">
-          <source srcset="<%= asset_path('web1st.webp') %>" type="image/webp">
+          <source media="(min-width: 992px)" srcset="<%= asset_path('web1st-large.webp') %>">
+          <source media="(min-width: 992px)" srcset="<%= asset_path('web1st-large.jpg') %>">
+          <source srcset="<%= asset_path('web1st-medium.webp') %>" type="image/webp">
           <!-- Fallback -->
-          <img src="<%= asset_path('web1st.jpg') %>" 
+          <img src="<%= asset_path('web1st-medium.jpg') %>" 
                alt="BetterWebco services" 
                class="hero-image img-fluid w-100 h-100 object-fit-cover"
                loading="eager"
@@ -95,19 +95,16 @@
 
 <!-- Call to Action Section -->
 <section class="py-5 bg-dark text-light position-relative overflow-hidden">
-  <div class="container position-relative z-index-3">
+  <div class="container position-relative z-index-1">
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center">
         <h2 class="display-5 fw-bold mb-4">Ready to Grow Your Business Online?</h2>
         <p class="lead mb-5">
           Let's build something amazing together. Contact us today to get started!
         </p>
-  <%= link_to "Contact us", new_customer_path, class: "btn btn-primary btn-lg px-4" %>
-
-        
+        <%= link_to "Contact Us", new_customer_path, class: "btn btn-primary btn-lg px-5 py-3" %>
       </div>
     </div>
   </div>
-  <%# <div class="position-absolute top-0 start-0 w-100 h-100 bg-pattern opacity-10 z-index-0"></div> %>
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-pattern opacity-10"></div>
 </section>
-
