@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get "static_pages/our_process"
   get 'faqs.json', to: 'faqs#index'
   get "static_pages/search"
+  get "static_pages/learn_more"
 
 
   resources :customers, only: [:new, :create] do
