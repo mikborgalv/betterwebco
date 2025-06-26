@@ -1,122 +1,290 @@
 <!-- app/views/static_pages/our_process.html.erb -->
-<div class="container-fluid dark-theme py-5">
-  <h1 class="text-center mb-5">Our Web Development Process</h1>
-       <p class=" text-center lead mb-4">
-       At Betterwebco, our structured development process ensures efficiency, quality, and long-term value. We focus on strategic planning, seamless execution, and ongoing support to maximize your return on investment.
-        </p>
-        <br>
-        <br>
-  <div class="row g-4" data-controller="card-animations">
-    <!-- Planning and Discovery -->
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow-lg">
-        <div class="card-header bg-dark text-white">
-          <i class="fas fa-lightbulb me-2"></i> Planning and Discovery
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Requirement Gathering:</strong> Understanding the client's needs, target audience, and business objectives.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Scope Definition:</strong> Defining the project's goals, features, and functionalities.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Technology Selection:</strong> Choosing the appropriate tech stack (languages, frameworks, databases) based on project requirements.</li>
-          </ul>
-        </div>
-      </div>
+<div class="container-fluid bg-dark text-light py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h1 class="fw-bold mb-5 p-6">Our Web Development Process</h1>
+      <p class="lead mb-4">
+        At Betterwebco, our structured development process ensures efficiency, quality, and long-term value. We focus on strategic planning, seamless execution, and ongoing support to maximize your return on investment.
+      </p>
+      <hr class="border-top border-secondary mx-auto" style="width: 100px;">
     </div>
 
-    <!-- Design -->
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow-lg">
-        <div class="card-header bg-dark text-white">
-          <i class="fas fa-pencil-ruler me-2"></i> Design
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Wireframing:</strong> Creating a basic layout of the website/application to visualize its structure.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>UI/UX Design:</strong> Developing user interfaces that are intuitive, aesthetically pleasing, and functional.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Prototyping:</strong> Building interactive prototypes to demonstrate user flows and functionality.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Front-end Development -->
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow-lg">
-        <div class="card-header bg-dark text-white">
-          <i class="fas fa-code me-2"></i> Front-end Development
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>HTML/CSS:</strong> Creating the structure and styling of the website's elements.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>JavaScript:</strong> Adding interactivity and dynamic functionality to the website.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Frameworks/Libraries:</strong> Using tools like React, Angular, or Vue.js to streamline development and enhance user experience.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Back-end Development -->
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow-lg">
-        <div class="card-header bg-dark text-white">
-          <i class="fas fa-server me-2"></i> Back-end Development
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Server-side Programming:</strong> Using languages like Node.js, Python, Ruby, or PHP to build server logic.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Database Integration:</strong> Developing database structures and integrating them into the application (SQL, NoSQL).</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>API Development:</strong> Creating endpoints to facilitate communication between the front-end and back-end.</li>
-          </ul>
+    <div class="row g-4" data-controller="card-animations">
+      <!-- Planning and Discovery -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 bg-dark-2 shadow-lg hover-effect">
+          <div class="card-header bg-transparent border-bottom border-secondary">
+            <h3 class="mb-0 text-white">
+              <i class="bi bi-lightbulb text-primary me-2" style="color: #86b7fe !important;"></i> 
+              Planning and Discovery
+            </h3>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Requirement Gathering</strong>
+                  <small class="text-white">Understanding client needs, target audience, and business objectives</small>
+                </div>
+              </li>
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Scope Definition</strong>
+                  <small class="text-white">Defining project goals, features, and functionalities</small>
+                </div>
+              </li>
+              <li class="d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Technology Selection</strong>
+                  <small class="text-white">Choosing the appropriate tech stack based on requirements</small>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Testing -->
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow-lg">
-        <div class="card-header bg-dark text-white">
-          <i class="fas fa-vial me-2"></i> Testing
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Unit Testing:</strong> Checking individual components for correctness.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Integration Testing:</strong> Testing how different parts work together.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>User Acceptance Testing (UAT):</strong> Getting feedback from target users to ensure usability and functionality.</li>
-          </ul>
+      <!-- Design -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 bg-dark-2 shadow-lg hover-effect">
+          <div class="card-header bg-transparent border-bottom border-secondary">
+            <h3 class="card-title text-white fw-bold mb-0">
+              <i class="bi bi-palette text-light me-2" style="color: #86b7fe !important;"></i> 
+
+              Design
+            </h3>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Wireframing</strong>
+                  <small class="text-white">Creating basic layouts to visualize structure</small>
+                </div>
+              </li>
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">UI/UX Design</strong>
+                  <small class="text-white">Developing intuitive, aesthetically pleasing interfaces</small>
+                </div>
+              </li>
+              <li class="d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Prototyping</strong>
+                  <small class="text-white">Building interactive demos of user flows</small>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Deployment -->
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow-lg">
-        <div class="card-header bg-dark text-white">
-          <i class="fas fa-rocket me-2"></i> Deployment
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Server Setup:</strong> Configuring servers or utilizing cloud services for hosting.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Version Control:</strong> Using tools like Git for code management.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Deployment Automation:</strong> Implementing continuous integration and deployment pipelines for smoother updates.</li>
-          </ul>
+      <!-- Front-end Development -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 bg-dark-2 shadow-lg hover-effect">
+          <div class="card-header bg-transparent border-bottom border-secondary">
+            <h3 class="mb-0 text-white">
+              <i class="bi bi-code-square text-primary me-2" style="color: #86b7fe !important;"></i> 
+              Front-end Development
+            </h3>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">HTML/CSS</strong>
+                  <small class="text-white">Creating structure and styling of elements</small>
+                </div>
+              </li>
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">JavaScript</strong>
+                  <small class="text-white">Adding interactivity and dynamic functionality</small>
+                </div>
+              </li>
+              <li class="d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Frameworks/Libraries</strong>
+                  <small class="text-white">Using React, Angular, or Vue.js to enhance UX</small>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Maintenance and Optimization -->
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow-lg">
-        <div class="card-header bg-dark text-white">
-          <i class="fas fa-tools me-2"></i> Maintenance and Optimization
+      <!-- Back-end Development -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 bg-dark-2 shadow-lg hover-effect">
+          <div class="card-header bg-transparent border-bottom border-secondary">
+            <h3 class="mb-0 text-white">
+              <i class="bi bi-database text-primary me-2" style="color: #86b7fe !important;"></i> 
+              Back-end Development
+            </h3>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Server-side Programming</strong>
+                  <small class="text-white">Node.js, Python, Ruby, or PHP for server logic</small>
+                </div>
+              </li>
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Database Integration</strong>
+                  <small class="text-white">Developing SQL/NoSQL database structures</small>
+                </div>
+              </li>
+              <li class="d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">API Development</strong>
+                  <small class="text-white">Creating endpoints for front-end communication</small>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Bug Fixing:</strong> Identifying and resolving issues that arise post-launch.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Performance Optimization:</strong> Improving site speed, scalability, and overall performance.</li>
-            <li><i class="fas fa-check-circle me-2 text-primary"></i><strong>Content Updates and Security Patches:</strong> Regularly updating content and applying security patches to ensure data safety.</li>
-          </ul>
+      </div>
+
+      <!-- Testing -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 bg-dark-2 shadow-lg hover-effect">
+          <div class="card-header bg-transparent border-bottom border-secondary">
+            <h3 class="mb-0 text-white">
+              <i class="bi bi-bug text-primary me-2" style="color: #86b7fe !important;"></i> 
+              Testing
+            </h3>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Unit Testing</strong>
+                  <small class="text-white">Checking individual components for correctness</small>
+                </div>
+              </li>
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Integration Testing</strong>
+                  <small class="text-white">Testing how different parts work together</small>
+                </div>
+              </li>
+              <li class="d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">User Acceptance Testing</strong>
+                  <small class="text-white">Getting feedback from target users</small>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deployment -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 bg-dark-2 shadow-lg hover-effect">
+          <div class="card-header bg-transparent border-bottom border-secondary">
+            <h3 class="mb-0 text-white">
+              <i class="bi bi-rocket text-primary me-2" style="color: #86b7fe !important;"></i> 
+              Deployment
+            </h3>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Server Setup</strong>
+                  <small class="text-white">Configuring servers or cloud services</small>
+                </div>
+              </li>
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Version Control</strong>
+                  <small class="text-white">Using Git for code management</small>
+                </div>
+              </li>
+              <li class="d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Deployment Automation</strong>
+                  <small class="text-white">Implementing CI/CD pipelines</small>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Maintenance and Optimization -->
+      <div class="col-md-6 col-lg-4 mx-auto">
+        <div class="card h-100 border-0 bg-dark-2 shadow-lg hover-effect">
+          <div class="card-header bg-transparent border-bottom border-secondary">
+            <h3 class="mb-0 text-white">
+              <i class="bi bi-tools text-primary me-2" style="color: #86b7fe !important;"></i> 
+              Maintenance
+            </h3>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Bug Fixing</strong>
+                  <small class="text-white">Identifying and resolving post-launch issues</small>
+                </div>
+              </li>
+              <li class="mb-3 d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Performance Optimization</strong>
+                  <small class="text-white">Improving speed, scalability, and performance</small>
+                </div>
+              </li>
+              <li class="d-flex">
+                <i class="bi bi-check-circle-fill me-3" style="color: #86b7fe; font-size: 1.2rem;"></i>
+                <div>
+                  <strong class="d-block text-light">Security Updates</strong>
+                  <small class="text-white">Applying patches to ensure data safety</small>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<style>
+  .bg-dark-2 {
+    background-color: #1a1a1a;
+  }
+  .hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+  }
+  .border-secondary {
+    border-color: #2c2c2c !important;
+  }
+</style>
