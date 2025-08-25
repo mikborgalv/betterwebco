@@ -15,16 +15,16 @@
   </div>
 
   <div class="mb-3">
-    <%= form.label :email, class: 'form-label text-light' %>  <span id="emailHelp" class="form-text text-light">  enter your email.  We'll never share your email with anyone else.</span>
+    <%= form.label :contact_email, class: 'form-label text-light' %>  <span id="emailHelp" class="form-text text-light">  enter your email.  We'll never share your email with anyone else.</span>
     <div class="input-group">
       <span class="input-group-text bg-dark text-light"><i class="bi bi-envelope"></i></span>
       
-      <%= form.email_field :email, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:email].any?}",data: {form_target: "email"}, placeholder: "Your@email.com", aria: { describedby: "emailHelp" }  %>
+      <%= form.email_field :contact_email, class: "form-control bg-dark text-light #{'is-invalid' if customer.errors[:email].any?}",data: {form_target: "email"}, placeholder: "Your@email.com", aria: { describedby: "emailHelp" }  %>
      
     </div>
-    <% if @customer.errors[:email].any? %>
+    <% if @customer.errors[:contact_email].any? %>
       <div class="invalid-feedback text-danger", data-form-target="email">
-        <%= @customer.errors[:email].join(", ") %>
+        <%= @customer.errors[:contact_email].join(", ") %>
       </div>
     <% end %>
   </div>
