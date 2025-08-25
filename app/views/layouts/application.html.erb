@@ -17,12 +17,42 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
+
+    <style>
+  /* Critical CSS for hero section */
+  .hero-section {
+    position: relative;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+  
+  .display-4 {
+    font-size: calc(1.475rem + 2.7vw);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+</style>
+
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
  <body class="bg-dark text-light">
+
+
   <div class="container">
   <div class="alert alert-danger d-none"></div>
   <br>

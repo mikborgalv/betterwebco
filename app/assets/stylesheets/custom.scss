@@ -1,9 +1,137 @@
 // Custom styles for the hero section
-.hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('web1st.jpg'); // Add a background image
-    background-size: cover;
-    background-position: center;
+  /* Custom CSS */
+  .hero-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
+  
+  .bg-dark-gray {
+    background-color: #1e1e1e;
+  }
+  
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  }
+  
+  .transition-all {
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+  
+  .fill-primary {
+    fill: #0d6efd;
+  }
+
+
+
+/* Hero Section */
+.hero-container {
+  min-height: 100vh;
+  background-color: #1a1a1a; /* Fallback color */
+}
+
+.hero-content-col {
+  background-color: #1a1a1a;
+  padding: 3rem 1rem;
+}
+
+.hero-image-col {
+  min-height: 50vh; /* Minimum height on mobile */
+}
+
+.hero-image {
+  object-position: center;
+  transition: opacity 0.5s ease;
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive Behavior */
+@media (min-width: 992px) {
+  .hero-container {
+    min-height: 80vh;
+    max-height: 1200px;
+  }
+  
+  .hero-content-col {
+    padding: 5rem;
+  }
+  
+  .hero-image-col {
+    min-height: 80vh;
+  }
+}
+
+/* Cards */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+}
+
+.icon-wrapper {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .icon-wrapper {
+  transform: scale(1.1);
+}
+
+/* Background pattern for CTA */
+.bg-pattern {
+  background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate__fadeIn {
+  animation: fadeIn 0.8s forwards;
+}
+
+.animate__delay-1s {
+  animation-delay: 0.3s;
+}
+
+.animate__delay-2s {
+  animation-delay: 0.6s;
+}
+
+/* Font display optimization */
+@font-face {
+  font-family: 'YourFont';
+  src: url('yourfont.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* Animation classes */
+.animate__animated {
+  opacity: 0;
+}
+
+.animate__fadeIn {
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
   
   // Custom card styles
   .card {
@@ -35,7 +163,6 @@
     }
   }
 
-  // Custom styles for the thank you page
 // Custom styles for the thank you page
 .thank-you-page {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), asset-url('thank-you-background.jpg');

@@ -1,14 +1,14 @@
 databases:
-  - name: small_business_tools
-    databaseName: small_business_tools
-    user: mysite
-    plan: free
+  - name: betterwebtools
+    databaseName: betterwebtools_vzkp
+    user: web1st
+    plan: basic 
 
 services:
   - type: web
     name: betterwebco
     runtime: ruby
-    plan: free
+    plan: basic
     buildCommand: "./bin/render-build.sh"
     # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
