@@ -1,4 +1,7 @@
-# Rails.application.routes.draw do
+Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users
 #   # resources :customers
 #   # root "customers#new"
 #   # # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -16,7 +19,6 @@
 # end
 
 # config/routes.rb
-Rails.application.routes.draw do
   root "customers#index"
   get "customers/thank_you"
 

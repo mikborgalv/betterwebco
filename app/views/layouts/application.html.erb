@@ -45,9 +45,11 @@
   }
 </style>
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+
+
+    <%# esbuild builds both JS and CSS into app/assets/builds %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
  <body class="bg-dark text-light">

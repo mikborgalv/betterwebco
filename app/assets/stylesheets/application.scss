@@ -1,0 +1,491 @@
+// Custom styles for the hero section
+
+$primary: #0d6efd;
+$dark: #212529;
+$success: #67a832;
+$light: #dad1d1;
+$danger: #adb5bd;
+
+/* app/assets/stylesheets/application.bootstrap.scss */
+.alert-danger {
+    margin-top: 1rem;
+    border-color: $danger; // Red border for invalid fields
+    background-color: darken($danger, 40%); // Dark red background
+    color: $light; // Light text for contrast
+  }
+
+  .form-control::placeholder {
+    color: #6c757d; /* Placeholder color */
+    opacity: 1; /* Ensure full visibility */
+    font-size: 14px; /* Adjust font size */
+    font-style: italic; /* Make placeholder text italic */
+  }
+  
+  .bg-dark .form-control::placeholder {
+    color: #adb5bd; /* Light gray color for dark theme */
+  }
+
+  // app/assets/stylesheets/application.bootstrap.scss
+
+// Custom validation styles for dark theme
+.form-control {
+  &.is-valid {
+    border-color: $success; // Green border for valid fields
+    background-color: darken($success, 40%); // Dark green background
+    color: $light; // Light text for contrast
+  }
+
+  &.is-invalid {
+    border-color: $danger; // Red border for invalid fields
+    background-color: darken($danger, 40%); // Dark red background
+    color: $light; // Light text for contrast
+  }
+
+
+}
+.invalid-feedback {
+  display: block !important; // Ensure the error message is displayed
+  opacity: 1 !important; // Ensure full visibility
+  visibility: visible !important; // Ensure the element is visible
+  z-index: 1000; // Ensure the error message is on top
+  position: relative; // Ensure the z-index works
+}
+
+.text-danger {
+  color: #ff6b6b; // Light red for dark theme
+  font-size: 0.875rem; // Smaller font size
+  margin-top: 0.25rem; // Add spacing
+  display: block; // Ensure the error message is displayed
+  z-index: 50;
+
+}
+// Custom card hover effects
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Custom icon styles
+.bi {
+  color: #0d6efd; // Bootstrap primary color
+}
+// app/assets/stylesheets/application.bootstrap.scss
+
+/* Custom focus styles */
+.form-control:focus {
+  border-color: #86b7fe; // Light blue border
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); // Bootstrap's default focus shadow
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); // Focus shadow for buttons
+}
+/* Ensure error messages are visible in dark theme */
+.bg-dark .invalid-feedback {
+  color: #ff6b6b; // Light red for dark theme
+}
+
+/* Ensure form controls with errors are highlighted */
+.form-control.is-invalid {
+  border-color: #ff6b6b; // Light red border for invalid fields
+}
+
+.form-control::-webkit-input-placeholder { /* Chrome, Safari, Opera */
+  color: #4a4e52;
+}
+
+.form-control::-moz-placeholder { /* Firefox */
+  color: #40464b;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer */
+  color: #6c757d;
+}
+
+.form-control::placeholder { /* Modern browsers */
+  color: #6c757d;
+}
+
+// Ensure cards are aligned horizontally
+#services .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#services .card {
+  flex: 1 1 30%; // Adjust the width of each card
+  margin: 1%; // Add margin between cards
+  min-width: 300px; // Ensure cards don't get too small
+}
+
+
+
+
+
+
+
+  /* Custom CSS */
+  .hero-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  
+  .bg-dark-gray {
+    background-color: #1e1e1e;
+  }
+  
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  }
+  
+  .transition-all {
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+  
+  .fill-primary {
+    fill: #0d6efd;
+  }
+
+
+
+/* Hero Section */
+.hero-container {
+  min-height: 100vh;
+  background-color: #1a1a1a; /* Fallback color */
+}
+
+.hero-content-col {
+  background-color: #1a1a1a;
+  padding: 3rem 1rem;
+}
+
+.hero-image-col {
+  min-height: 50vh; /* Minimum height on mobile */
+}
+
+.hero-image {
+  object-position: center;
+  transition: opacity 0.5s ease;
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive Behavior */
+@media (min-width: 992px) {
+  .hero-container {
+    min-height: 80vh;
+    max-height: 1200px;
+  }
+  
+  .hero-content-col {
+    padding: 5rem;
+  }
+  
+  .hero-image-col {
+    min-height: 80vh;
+  }
+}
+
+/* Cards */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+}
+
+.icon-wrapper {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .icon-wrapper {
+  transform: scale(1.1);
+}
+
+/* Background pattern for CTA */
+.bg-pattern {
+  background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate__fadeIn {
+  animation: fadeIn 0.8s forwards;
+}
+
+.animate__delay-1s {
+  animation-delay: 0.3s;
+}
+
+.animate__delay-2s {
+  animation-delay: 0.6s;
+}
+
+/* Font display optimization */
+@font-face {
+  font-family: 'YourFont';
+  src: url('yourfont.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* Animation classes */
+.animate__animated {
+  opacity: 0;
+}
+
+.animate__fadeIn {
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+  
+  // Custom card styles
+  .card {
+    border: 1px solid rgba(255, 255, 255, 0.2); // Light border with transparency
+    border-radius: 15px; // Rounded corners
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); // White shadow
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-5px); // Slight lift on hover
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); // Stronger shadow on hover
+    }
+  }
+  
+  // Custom button styles
+  .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+  
+    &:hover {
+      background-color: #0b5ed7;
+      border-color: #0b5ed7;
+    }
+  }
+  
+  .btn-outline-light {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+// Custom styles for the thank you page
+.thank-you-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), asset-url('thank-you-background.jpg');
+  background-size: cover;
+  background-position: center;
+  padding-top: 10vh; // Center the hero section vertically
+  padding-bottom: 2rem; // Add padding to the bottom for smaller screens
+}
+
+// Card styles with transparency, white shadow, and rounded border
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.2); // Light border with transparency
+  border-radius: 15px; // Rounded corners
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); // White shadow
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px); // Slight lift on hover
+  }
+}
+
+// Lighter blue icon color
+.bi {
+  color: #86b7fe; // Lighter blue color
+}
+
+// Responsive padding for smaller screens
+@media (max-width: 768px) {
+  .thank-you-page {
+    padding-top: 5vh; // Adjust padding for smaller screens
+    padding-bottom: 1rem; // Adjust padding for smaller screens
+  }
+}
+
+// Link styles
+a.text-light {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+// Phone icon styles
+.bi-telephone {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+.bi {
+  color: #86b7fe; // Lighter blue color
+}
+
+
+/* Dark Theme */
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dark-theme .accordion-button {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-theme .accordion-body {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark-theme .accordion-item {
+  border-color: #444;
+}
+
+/* Dark Theme for Search and FAQ Section */
+.bg-dark {
+  background-color: #1e1e1e !important;
+}
+
+.border-light {
+  border-color: #444 !important;
+}
+
+.text-light {
+  color: #ffffff !important;
+}
+
+.card {
+  background-color: #2d2d2d;
+  border: 1px solid #444;
+}
+
+.card-title {
+  color: #0d6efd; /* Bootstrap primary color */
+}
+
+.card-text {
+  color: #ffffff;
+}
+
+/* app/assets/stylesheets/application.css */
+.highlight {
+  background-color: #ffeb3b; /* Yellow background */
+  color: #000; /* Black text */
+  font-weight: bold;
+}
+
+/* app/assets/stylesheets/application.css */
+
+/* Position the search input absolutely */
+.position-absolute {
+  position: absolute;
+}
+
+/* Position the results relatively */
+.position-relative {
+  position: relative;
+}
+
+/* Ensure the search input is centered */
+.input-group {
+  width: 100%;
+  max-width: 500px; /* Adjust as needed */
+}
+
+/* Dark theme styles for the search input and button */
+.form-control.bg-transparent {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+.btn-outline-light {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Style for FAQ results */
+#faq-results {
+  background-color: #2d2d2d;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 999;
+}
+
+/* Highlight matches in search results */
+.highlight {
+  background-color: #ffeb3b; /* Yellow background */
+  color: #000; /* Black text */
+  font-weight: bold;
+}
+/* Custom medium size for the search input */
+.w-300px {
+  width: 300px !important;
+}
+
+/* app/assets/stylesheets/application.css */
+
+/* Footer Styles */
+.footer {
+  border-top: 1px solid #444;
+}
+
+.footer a:hover {
+  color: #0d6efd !important; /* Bootstrap primary color */
+  text-decoration: underline;
+}
+
+.footer .list-unstyled li {
+  margin-bottom: 10px;
+}
+
+.footer .fab {
+  transition: transform 0.2s ease-in-out;
+}
+
+.footer .fab:hover {
+  transform: scale(1.2);
+}
+
+// Responsive padding for smaller screens
+@media (max-width: 768px) {
+  .thank-you-page {
+    padding-top: 5vh; // Adjust padding for smaller screens
+    padding-bottom: 1rem; // Adjust padding for smaller screens
+  }
+}

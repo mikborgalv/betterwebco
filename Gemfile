@@ -68,5 +68,12 @@ group :test do
 end
 
 gem 'devise'
+gem "activeadmin"
+gem "sprockets-rails"
+gem 'sassc-rails'
+gem "bootstrap", "~> 5.3.0"
+
+
+
 
 
