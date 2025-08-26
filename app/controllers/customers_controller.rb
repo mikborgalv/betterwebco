@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  
   before_action :set_customer, only: %i[ show edit update destroy ]
 
   # GET /customers or /customers.json
@@ -55,6 +56,8 @@ class CustomersController < ApplicationController
   end
 
   # DELETE /customers/1 or /customers/1.json
+
+
   def destroy
     @customer.destroy!
 
