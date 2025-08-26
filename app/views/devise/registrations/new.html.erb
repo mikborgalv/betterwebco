@@ -1,29 +1,62 @@
-<h2>Sign up</h2>
+<h2 class="text-light mb-4">Sign Up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_with(model: resource, url: registration_path(resource_name),
+      data: { controller: "form", action: "input->form#validateForm submit->form#submitForm turbo:submit-end->form#clearForm" }) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <!-- Email -->
+  <div class="mb-3">
+    <%= f.label :email, class: "form-label text-light" %>
+    <div class="input-group">
+      <span class="input-group-text bg-dark text-light"><i class="bi bi-envelope"></i></span>
+      <%= f.email_field :email,
+            class: "form-control bg-dark text-light #{'is-invalid' if resource.errors[:email].any?}",
+            data: { form_target: "email" },
+            placeholder: "Your@email.com" %>
+    </div>
+    <% if resource.errors[:email].any? %>
+      <div class="invalid-feedback text-light" role="alert">
+        <%= resource.errors[:email].join(", ") %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <!-- Password -->
+  <div class="mb-3">
+    <%= f.label :password, class: "form-label text-light" %>
+    <div class="input-group">
+      <span class="input-group-text bg-dark text-light"><i class="bi bi-lock"></i></span>
+      <%= f.password_field :password,
+            class: "form-control bg-dark text-light #{'is-invalid' if resource.errors[:password].any?}",
+            data: { form_target: "password" },
+            placeholder: "Enter your password" %>
+    </div>
+    <% if resource.errors[:password].any? %>
+      <div class="invalid-feedback text-light" role="alert">
+        <%= resource.errors[:password].join(", ") %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <!-- Password Confirmation -->
+  <div class="mb-3">
+    <%= f.label :password_confirmation, class: "form-label text-light" %>
+    <div class="input-group">
+      <span class="input-group-text bg-dark text-light"><i class="bi bi-lock-fill"></i></span>
+      <%= f.password_field :password_confirmation,
+            class: "form-control bg-dark text-light #{'is-invalid' if resource.errors[:password_confirmation].any?}",
+            placeholder: "Confirm password" %>
+    </div>
+    <% if resource.errors[:password_confirmation].any? %>
+      <div class="invalid-feedback text-light" role="alert">
+        <%= resource.errors[:password_confirmation].join(", ") %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  <!-- Submit -->
+  <%= f.submit "Sign Up", class: "btn btn-primary", data: { form_target: "submit" } %>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p class="text-light mt-3">
+  Already have an account? <%= link_to "Sign in", new_session_path(resource_name), class: "text-decoration-underline text-light" %>
+</p>

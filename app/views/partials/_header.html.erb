@@ -35,39 +35,7 @@
           <%= link_to "Faq's", static_pages_search_path, class: "nav-link" %>
         </li>
 
-        <%# Devise login/logout logic with Turbo-compatible button_to %>
-        <% if user_signed_in? || admin_user_signed_in? %>
-          <li class="nav-item dropdown">
-            <% current_name = user_signed_in? ? current_user.email : current_admin_user.email %>
-            <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-bs-toggle="dropdown">
-              👋 <%= current_name %>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-              <% if admin_user_signed_in? %>
-                <li>
-                  <%= link_to "Admin Dashboard", admin_root_path, class: "dropdown-item" %>
-                </li>
-              <% end %>
-              <li>
-                <%# Turbo-safe logout button %>
-                <%= button_to(
-                      user_signed_in? ? destroy_user_session_path : "/admin/logout",
-                      method: :delete,
-                      form: { data: { turbo: true } },
-                      class: "dropdown-item"
-                    ) do %>
-                  Sign Out
-                <% end %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Sign In", new_user_session_path, class: "nav-link btn btn-outline-light ms-2" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+ <%# Include Devise Links Partial %>
+  <%= render 'partials/devise_links' %>
 </header>
 
