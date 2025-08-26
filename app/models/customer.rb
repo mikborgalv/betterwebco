@@ -7,6 +7,10 @@ class Customer < ApplicationRecord
 
   before_validation :set_default_project_type
 
+    def self.ransackable_attributes(auth_object = nil)
+    ["contact_email", "created_at", "id", "message", "name", "project_type", "updated_at"]
+  end
+
   private
 
   def set_default_project_type
