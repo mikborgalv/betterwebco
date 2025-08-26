@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-
-  devise_for :users
+devise_for :users, controllers: {
+  sessions: 'users/sessions'
+}
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  # Dashboard route for users
+namespace :users do
+  get 'dashboard', to: 'dashboard#index', as: 'dashboard'
+end
 
 #   # resources :customers
 #   # root "customers#new"

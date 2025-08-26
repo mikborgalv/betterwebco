@@ -1,0 +1,23 @@
+<div class="container my-5">
+  <h2 class="text-light text-center mb-4">Welcome
+
+  <div class="row justify-content-center g-3">
+    <% @plans.each do |plan| %>
+      <div class="col-md-4">
+        <div class="card bg-dark text-light shadow-sm h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><%= plan[:name] %></h5>
+            <p class="card-text"><%= plan[:description] %></p>
+            <p class="card-text fw-bold">$<%= plan[:price] %> / month</p>
+
+            <%= button_to "Subscribe", "#",
+                  class: "btn btn-primary mt-auto",
+                  data: { turbo_frame: "subscription" } %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<turbo-frame id="subscription"></turbo-frame>
