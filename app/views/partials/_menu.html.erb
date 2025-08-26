@@ -1,0 +1,14 @@
+<nav class="bg-light border-bottom mb-4">
+  <div class="container d-flex justify-content-between align-items-center py-2">
+    <% if user_signed_in? %>
+      <span class="fw-bold">Hello, <%= current_user.email %></span>
+    <% end %>
+
+    <% if defined?(current_admin_user) && current_admin_user.present? %>
+      <div>
+        <%= link_to "Admin Dashboard", admin_root_path, class: "btn btn-sm btn-primary me-2" %>
+        <%= link_to "Users", admin_users_path, class: "btn btn-sm btn-outline-primary" %>
+      </div>
+    <% end %>
+  </div>
+</nav>
