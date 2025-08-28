@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root "customers#index"
 devise_for :users, controllers: {
   sessions: 'users/sessions'
 }
@@ -27,7 +29,7 @@ end
 # end
 
 # config/routes.rb
-  root "customers#index"
+
   get "customers/thank_you"
 
   get "static_pages/our_services"
