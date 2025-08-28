@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :users do
+    get "projects/create"
+  end
 
   root "customers#index"
 devise_for :users, controllers: {
@@ -10,6 +13,8 @@ devise_for :users, controllers: {
   # Dashboard route for users
 namespace :users do
   get 'dashboard', to: 'dashboard#index', as: 'dashboard'
+  post 'dashboard/subscribe', to: 'dashboard#subscribe', as: 'dashboard_subscribe'
+  resources :projects, only: [:create]
 end
 
 #   # resources :customers
