@@ -1,18 +1,18 @@
 ActiveAdmin.register User do
+  # Columns shown in index (optional)
+  index do
+    selectable_column
+    id_column
+    column :email
+    column :created_at
+    actions
+  end
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  # permit_params :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+  # ✅ Keep filters simple. Ransack will use “contains” for strings.
+  filter :email     # or: filter :email, as: :string
+  filter :created_at
+
+  # If you previously had `filter :email_cont`, you can remove it.
+  # `filter :email` is enough once email is whitelisted in the model.
 end
+
