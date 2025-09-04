@@ -1,0 +1,8 @@
+<!-- app/views/users/dashboard/_account.html.erb -->
+<div class="card bg-dark text-light shadow mb-4">
+  <div class="card-body">
+    <h4 class="card-title">👤 Account Information</h4>
+    <p><strong>Email:</strong> <%= user.email %></p>
+    <p><strong>Member Since:</strong> <%= user.created_at.strftime("%B %d, %Y") %></p>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<!-- app/views/users/dashboard/_projects.html.erb -->
+<div class="card bg-dark text-light shadow mb-4">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 class="card-title">📂 Your Projects</h4>
+      <a class="btn btn-outline-primary btn-sm" data-bs-toggle="collapse" href="#newProjectForm" role="button" aria-expanded="false" aria-controls="newProjectForm">
+        + New Project
+      </a>
+    </div>
+
+    <% if projects.any? %>
+      <ul class="list-group list-group-flush">
+        <% projects.each do |project| %>
+          <li class="list-group-item bg-dark text-light d-flex justify-content-between align-items-start">
+            <div>
+              <strong><%= project.name %></strong>
+              <span class="badge bg-secondary ms-2"><%= project.status.presence || "in progress" %></span><br>
+              <small><%= project.description.presence || "No description" %></small>
+            </div>
+            <span class="badge bg-primary align-self-center"><%= project.plan.name %></span>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p class="text-muted">You don’t have any projects yet. Create your first one below.</p>
+    <% end %>
+
+    <div class="collapse mt-4" id="newProjectForm">
+      <%= form_with model: [:users, Project.new], url: users_projects_path, data: { turbo_frame: "projects" } do |f| %>
+        <div class="mb-3">
+          <%= f.label :name, class: "form-label" %>
+          <%= f.text_field :name, class: "form-control bg-dark text-light" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :description, class: "form-label" %>
+          <%= f.text_area :description, rows: 3, class: "form-control bg-dark text-light" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :status, class: "form-label" %>
+          <%= f.select :status, ["in progress", "completed", "on hold"], {}, class: "form-select bg-dark text-light" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :plan_id, "Assign Plan", class: "form-label" %>
+          <%= f.collection_select :plan_id, Plan.order(price: :asc), :id, :name, {}, class: "form-select bg-dark text-light" %>
+        </div>
+        <%= f.submit "Save Project", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

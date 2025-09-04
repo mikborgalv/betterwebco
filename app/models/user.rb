@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :web_developer_account, dependent: :destroy
-
+  has_many :projects, through: :web_developer_account
   # ✅ Allow Ransack to search these columns
   def self.ransackable_attributes(auth_object = nil)
     %w[id email created_at updated_at]

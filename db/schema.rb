@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_28_215808) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_02_194417) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -61,6 +61,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_28_215808) do
     t.string "contact_email"
   end
 
+  create_table "plans", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.bigint "web_developer_account_id", null: false
     t.string "name"
@@ -68,6 +76,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_28_215808) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "plan_id", null: false
+    t.index ["plan_id"], name: "index_projects_on_plan_id"
     t.index ["web_developer_account_id"], name: "index_projects_on_web_developer_account_id"
   end
 
@@ -91,9 +101,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_28_215808) do
     t.text "projects"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "plan_id", null: false
+    t.index ["plan_id"], name: "index_web_developer_accounts_on_plan_id"
     t.index ["user_id"], name: "index_web_developer_accounts_on_user_id"
   end
 
+  add_foreign_key "projects", "plans"
   add_foreign_key "projects", "web_developer_accounts"
+  add_foreign_key "web_developer_accounts", "plans"
   add_foreign_key "web_developer_accounts", "users"
 end

@@ -1,0 +1,35 @@
+<%= turbo_stream.replace "subscription" do %>
+  <%= render "users/dashboard/subscription", account: @account %>
+<% end %>
+
+<%= turbo_stream.replace "plans" do %>
+  <%= render "users/dashboard/plans", plans: Plan.order(price: :asc), account: @account %>
+<% end %>
+ERB
+
+cat > app/views/users/plans/update.turbo_stream.erb <<'ERB'
+<%= turbo_stream.replace "subscription" do %>
+  <%= render "users/dashboard/subscription", account: @account %>
+<% end %>
+
+<%= turbo_stream.replace "plans" do %>
+  <%= render "users/dashboard/plans", plans: Plan.order(price: :asc), account: @account %>
+<% end %>
+ERB
+
+cat > app/views/users/plans/destroy.turbo_stream.erb <<'ERB'
+<%= turbo_stream.replace "subscription" do %>
+  <div class="card bg-secondary text-light shadow mb-4">
+    <div class="card-body">
+      <h5 class="mb-0">Subscription cancelled.</h5>
+      <small>Select a plan below to resubscribe.</small>
+    </div>
+  </div>
+<% end %>
+
+<%= turbo_stream.replace "plans" do %>
+  <%= render "users/dashboard/plans", plans: Plan.order(price: :asc), account: nil %>
+<% end %>
+<%= turbo_stream.replace "projects" do %>
+  <%= render "users/dashboard/projects", projects: @account.projects.includes(:plan), account: @account %>
+<% end %>

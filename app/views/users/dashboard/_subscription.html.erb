@@ -1,0 +1,16 @@
+<div class="card bg-dark text-light shadow p-4 mb-4">
+  <h4 class="mb-3 text-primary">Your Subscription</h4>
+
+  <% if account.present? %>
+    <p><strong>Plan:</strong> <%= account.plan_name %></p>
+    <p><strong>Status:</strong>
+      <span class="badge <%= account.status == "active" ? "bg-success" : "bg-secondary" %>">
+        <%= account.status.capitalize %>
+      </span>
+    </p>
+    <p><strong>Price:</strong> $<%= account.price %> / month</p>
+  <% else %>
+    <p class="text-muted">You don’t have a subscription yet.</p>
+  <% end %>
+</div>
+

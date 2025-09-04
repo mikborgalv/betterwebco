@@ -5,7 +5,7 @@ ActiveAdmin.register Project do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :web_developer_account_id, :name, :description, :status
+  permit_params :web_developer_account_id, :name, :description, :status
   #
   # or
   #
