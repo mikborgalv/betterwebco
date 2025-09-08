@@ -5,7 +5,7 @@ class Project < ApplicationRecord
   validates :status, inclusion: { in: ["in progress", "completed", "on hold"], allow_blank: true }
 
     def self.ransackable_associations(auth_object = nil)
-    ["web_developer_account"]
+    ["web_developer_account_id", "plan"]
   end
 
   def self.ransackable_attributes(auth_object = nil)

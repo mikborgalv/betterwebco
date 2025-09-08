@@ -3,6 +3,10 @@ class Users::ProjectsController < ApplicationController
   before_action :set_account
   before_action :set_project, only: [:update, :destroy]
 
+
+    def index
+    @plans = @account.plan ? [@account.plan] : []
+  end
   def create
     @project = @account.projects.build(project_params)
 
