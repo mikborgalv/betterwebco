@@ -5,7 +5,11 @@ class Users::DashboardController < ApplicationController
   before_action :set_projects
   before_action :set_plans
 
-  def index; end
+    def index
+      @account = current_user.web_developer_account
+      @projects = @account ? @account.projects : []
+      @plans    = Plan.all
+    end
 
   private
 

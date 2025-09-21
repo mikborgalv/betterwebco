@@ -1,26 +1,28 @@
-<% plans.each do |plan| %>
-  <div class="col-md-4 mb-3">
-    <div class="card shadow-sm h-100">
-      <div class="card-body text-center">
-        <h5 class="card-title"><%= plan.name %></h5>
-        <p class="card-text">$<%= plan.price %> / month</p>
+<!-- app/views/users/dashboard/_plans.html.erb -->
+<div class="row" data-controller="plans" >
+  <% plans.each do |plan| %>
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title"><%= plan.name %></h5>
+          <p class="card-text">$<%= plan.price %> / month</p>
 
-        <% if account&.plan_id == plan.id %>
-          <button class="btn btn-success" disabled>Current Plan</button>
-        <% elsif account.present? %>
-          <%= button_to "Switch",
-                users_plan_path(plan),
-                method: :patch,
-                class: "btn btn-primary mt-auto",
-                data: { turbo_frame: "_top" } %>
-        <% else %>
-          <%= button_to "Subscribe",
-                users_plan_path(plan),
-                method: :post,
-                class: "btn btn-success mt-auto",
-                data: { turbo_frame: "_top" } %>
-        <% end %>
+          <% if account&.plan_id == plan.id %>
+            <!-- Current plan -->
+            <button class="btn btn-success" disabled>Current Plan</button>
+
+          <% elsif account.blank? %>
+            <!-- New user: Subscribe -->
+            <%= button_to "Subscribe",
+                  users_plans_path(plan_id: plan.id),
+                  method: :post,
+                  class: "btn btn-success mt-auto",
+                  data: { turbo_frame: "plans" } %>
+
+          <% end %>
+      
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

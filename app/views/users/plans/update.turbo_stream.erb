@@ -1,0 +1,8 @@
+<!-- app/views/users/plans/update.turbo_stream.erb -->
+<%= turbo_stream.replace "plans" do %>
+  <%= render "users/dashboard/plans", plans: Plan.all, account: @account %>
+<% end %>
+
+<%= turbo_stream.replace "subscription" do %>
+  <%= render "users/dashboard/subscription", account: @account %>
+<% end %>

@@ -17,6 +17,14 @@
       <%= render "plans", plans: @plans, account: @account %>
     <% end %>
   <% else %>
+
+      <%= turbo_frame_tag "subscription" do %>
+      <%= render "subscription", account: @account %>
+    <% end %>
+
+    <%= turbo_frame_tag "projects" do %>
+      <%= render "projects", projects: @projects, account: @account %>
+    <% end %>
     <%= turbo_frame_tag "plans" do %>
       <%= render "plans", plans: @plans, account: nil %>
     <% end %>
