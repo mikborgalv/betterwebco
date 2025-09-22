@@ -1,17 +1,29 @@
-<div id="<%= dom_id plan %>">
-  <p>
-    <strong>Name:</strong>
-    <%= plan.name %>
-  </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= plan.description %>
-  </p>
+<!-- app/views/users/plans/_plan.html.erb -->
 
-  <p>
-    <strong>Price:</strong>
-    <%= plan.price %>
-  </p>
+<div id="<%= dom_id(plan) %>" class="card shadow-sm h-100 bg-dark text-light">
+  <div class="card-body text-center">
+    <h5 class="card-title"><%= plan.name %></h5>
+    <p class="card-text">$<%= plan.price %> / month</p>
+    <p class="card-text"><%= plan.description %></p>
 
+    <% if defined?(account) %>
+      <% if account&.plan_id == plan.id %>
+        <button class="btn btn-success" disabled>Current Plan</button>
+      <% elsif account.blank? %>
+        <%= button_to "Subscribe",
+              users_plans_path(plan_id: plan.id),
+              method: :post,
+              class: "btn btn-success mt-auto",
+              data: { turbo_frame: "plans" } %>
+      <% elsif current_user&.admin? %>
+        <%= button_to "Switch to #{plan.name}",
+              users_plan_path(plan),
+              method: :patch,
+              class: "btn btn-primary mt-auto",
+              data: { turbo_frame: "plans" } %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+

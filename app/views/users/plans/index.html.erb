@@ -1,16 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<!-- app/views/users/plans/index.html.erb -->
+<div class="container py-5">
+  <h1 class="text-center mb-4 text-light">Available Plans</h1>
 
-<% content_for :title, "Plans" %>
+  <div class="row">
+    <% @plans.each do |plan| %>
+      <div class="col-md-4 mb-3">
+        <%= render "plan", plan: plan %>
+      </div>
+    <% end %>
+  </div>
 
-<h1>Plans</h1>
-
-<div id="plans">
-  <% @plans.each do |plan| %>
-    <%= render plan %>
-    <p>
-      <%= link_to "Show this plan", plan %>
-    </p>
+  <% if current_user&.admin? %>
+    <div class="text-center mt-4">
+      <%= link_to "New Plan", new_users_plan_path, class: "btn btn-primary" %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New plan", new_plan_path %>

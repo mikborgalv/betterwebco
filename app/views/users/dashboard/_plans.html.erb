@@ -1,28 +1,16 @@
 <!-- app/views/users/dashboard/_plans.html.erb -->
-<div class="row" data-controller="plans" >
-  <% plans.each do |plan| %>
-    <div class="col-md-4 mb-3">
-      <div class="card shadow-sm h-100">
-        <div class="card-body text-center">
-          <h5 class="card-title"><%= plan.name %></h5>
-          <p class="card-text">$<%= plan.price %> / month</p>
 
-          <% if account&.plan_id == plan.id %>
-            <!-- Current plan -->
-            <button class="btn btn-success" disabled>Current Plan</button>
-
-          <% elsif account.blank? %>
-            <!-- New user: Subscribe -->
-            <%= button_to "Subscribe",
-                  users_plans_path(plan_id: plan.id),
-                  method: :post,
-                  class: "btn btn-success mt-auto",
-                  data: { turbo_frame: "plans" } %>
-
-          <% end %>
-      
-        </div>
+<% if account&.plan.present? %>
+  <!-- Show only the selected plan for normal users -->
+  <%= render "users/plans/plan", plan: account.plan, account: account %>
+<% else %>
+  <!-- Show all plans (new users or admins) -->
+  <div class="row">
+    <% plans.each do |plan| %>
+      <div class="col-md-4 mb-3">
+        <%= render "users/plans/plan", plan: plan, account: account %>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
+

@@ -1,32 +1,89 @@
-<!-- app/views/users/dashboard/index.html.erb -->
-<div class="container py-5">
-  <h1 class="text-center mb-5 text-light">User Dashboard</h1>
 
-  <%= render "account", user: current_user %>
+  <!-- Header Section -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fas fa-tachometer-alt fa-2x text-primary me-3"></i>
+        <h1 class="h2 text-dark mb-0">User Dashboard</h1>
+      </div>
+      <p class="text-muted">Manage your account, subscription, and projects</p>
+    </div>
+  </div>
 
-  <% if @account.present? %>
-    <%= turbo_frame_tag "subscription" do %>
-      <%= render "subscription", account: @account %>
-    <% end %>
+  <!-- Main Cards Section -->
+  <div class="row g-4 mb-5">
+    <div class="col-12">
+      <div class="card-group">
+        
+        <!-- Account Card -->
+        <div class="card border-0 shadow-sm bg-light-blue">
+          <div class="card-header bg-info bg-opacity-10 border-bottom border-info">
+            <div class="d-flex align-items-center">
+              <i class="fas fa-user-circle fa-lg text-info me-2"></i>
+              <h5 class="card-title mb-0 text-dark">Account Information</h5>
+            </div>
+          </div>
+          <div class="card-body">
+            <%= render "account", user: current_user %>
+          </div>
+        </div>
 
-    <%= turbo_frame_tag "projects" do %>
-      <%= render "projects", projects: @projects, account: @account %>
-    <% end %>
+        <!-- Subscription Card -->
+        <div class="card border-0 shadow-sm bg-light-blue">
+          <div class="card-header bg-warning bg-opacity-10 border-bottom border-warning">
+            <div class="d-flex align-items-center">
+              <i class="fas fa-credit-card fa-lg text-warning me-2"></i>
+              <h5 class="card-title mb-0 text-dark">Subscription Status</h5>
+            </div>
+          </div>
+          <div class="card-body">
+            <%= turbo_frame_tag "subscription" do %>
+              <%= render "subscription", account: @account %>
+            <% end %>
+          </div>
+        </div>
 
-    <%= turbo_frame_tag "plans" do %>
-      <%= render "plans", plans: @plans, account: @account %>
-    <% end %>
-  <% else %>
+        <!-- Plans Card -->
+        <div class="card border-0 shadow-sm bg-light-blue">
+          <div class="card-header bg-success bg-opacity-10 border-bottom border-success">
+            <div class="d-flex align-items-center">
+              <i class="fas fa-cubes fa-lg text-success me-2"></i>
+              <h5 class="card-title mb-0 text-dark">Available Plans</h5>
+            </div>
+          </div>
+          <div class="card-body">
+            <%= turbo_frame_tag "plans" do %>
+              <%= render "plans", plans: @plans, account: @account %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      <%= turbo_frame_tag "subscription" do %>
-      <%= render "subscription", account: @account %>
-    <% end %>
+  <!-- Projects Section -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary bg-opacity-10 border-bottom border-primary">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-folder-open fa-lg text-primary me-2"></i>
+            <h4 class="card-title mb-0 text-dark">Your Projects</h4>
+          </div>
+        </div>
+        <div class="card-body bg-light-blue bg-opacity-25">
+          <%= turbo_frame_tag "projects" do %>
+            <%= render "projects", projects: @projects, account: @account %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <%= turbo_frame_tag "projects" do %>
-      <%= render "projects", projects: @projects, account: @account %>
-    <% end %>
-    <%= turbo_frame_tag "plans" do %>
-      <%= render "plans", plans: @plans, account: nil %>
-    <% end %>
-  <% end %>
-</div>
+<style>
+.bg-light-blue {
+  background-color: #e3f2fd !important;
+}
+</style>
+
+

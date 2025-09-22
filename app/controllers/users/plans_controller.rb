@@ -4,6 +4,13 @@ class Users::PlansController < ApplicationController
   before_action :set_plan, only: [:create, :update]
   before_action :set_account
 
+
+def index
+  @plans = Plan.all
+end
+
+
+
   def create
     if @account.blank?
       @account = current_user.build_web_developer_account(plan: @plan)
