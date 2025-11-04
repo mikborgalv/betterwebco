@@ -1,34 +1,46 @@
-<%# Detect if user or admin is signed in %>
+
+
+<%# LOGGED IN — USER OR ADMIN %>
 <% if user_signed_in? || admin_user_signed_in? %>
-  <% current_name = user_signed_in? ? current_user.email : current_admin_user.email %>
+  <% display_name = user_signed_in? ? current_user.email : current_admin_user.email %>
 
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-bs-toggle="dropdown">
-      👋 <%= current_name %>
+    <a 
+      class="nav-link dropdown-toggle" 
+      href="#" id="userMenu" 
+      role="button" 
+      data-bs-toggle="dropdown"
+    >
+      <span class="me-1">👋</span> <%= display_name %>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-      
+
+    <ul class="dropdown-menu dropdown-menu-end mt-2 shadow" aria-labelledby="userMenu">
       <% if user_signed_in? %>
-        <li>
-          <%= link_to "Dashboard", users_dashboard_path, class: "dropdown-item" %>
-        </li>
+        <li><%= link_to "Dashboard", users_dashboard_path, class: "dropdown-item" %></li>
       <% end %>
 
+      <li><hr class="dropdown-divider"></li>
+
       <li>
-        <%# Turbo-safe logout button %>
         <%= button_to(
-              user_signed_in? ? destroy_user_session_path : "/admin/logout",
-              method: :delete,
-              form: { data: { turbo: true } },
-              class: "dropdown-item"
-            ) do %>
+          user_signed_in? ? destroy_user_session_path : "/admin/logout",
+          method: :delete,
+          form: { data: { turbo: true } },
+          class: "dropdown-item text-danger"
+        ) do %>
           Sign Out
         <% end %>
       </li>
     </ul>
   </li>
+
+<%# LOGGED OUT — SHOW SIGN IN + SIGN UP %>
 <% else %>
   <li class="nav-item">
-    <%= link_to "Sign In", new_user_session_path, class: "nav-link btn btn-outline-light ms-2" %>
+    <%= link_to "Sign In", new_user_session_path, class: "nav-link px-3" %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Sign Up", new_user_registration_path, class: "nav-link px-3" %>
   </li>
 <% end %>
