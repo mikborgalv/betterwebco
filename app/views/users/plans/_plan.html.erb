@@ -16,13 +16,7 @@
               method: :post,
               class: "btn btn-success mt-auto",
               data: { turbo_frame: "plans" } %>
-      <% elsif current_user&.admin? %>
-        <%= button_to "Switch to #{plan.name}",
-              users_plan_path(plan),
-              method: :patch,
-              class: "btn btn-primary mt-auto",
-              data: { turbo_frame: "plans" } %>
-      <% end %>
+              <% end %>
     <% end %>
   </div>
 </div>

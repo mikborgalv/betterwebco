@@ -1,76 +1,47 @@
 <!DOCTYPE html>
 <html data-theme="dark">
   <head>
-      <% content_for :page_title, "Customer List" %>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-<%= javascript_include_tag "application", type: "module", defer: true %>
+    <!-- app builds -->
+    <%= stylesheet_link_tag  "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", type: "module", defer: true, "data-turbo-track": "reload" %>
 
     <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-
+    <!-- critical inline (allowed) -->
     <style>
-  /* Critical CSS for hero section */
-  .hero-section {
-    position: relative;
-    color: #fff;
-    display: flex;
-    align-items: center;
-  }
-  
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-  }
-  
-  .display-4 {
-    font-size: calc(1.475rem + 2.7vw);
-    font-weight: 700;
-    line-height: 1.2;
-  }
-  
-  .lead {
-    font-size: 1.25rem;
-    font-weight: 300;
-  }
-</style>
-
-
-
-    <%# esbuild builds both JS and CSS into app/assets/builds %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      .hero-section { position: relative; color:#fff; display:flex; align-items:center; }
+      .hero-content { position: relative; z-index:2; width:100%; }
+      .display-4 { font-size:calc(1.475rem + 2.7vw); font-weight:700; line-height:1.2; }
+      .lead { font-size:1.25rem; font-weight:300; }
+    </style>
   </head>
 
- <body class="bg-dark text-light">
+  <body class="bg-dark text-light">
+    <%= render "partials/header" %>
 
+    <div class="container py-4">
+      <% if notice %>
+        <div class="alert alert-info"><%= notice %></div>
+      <% end %>
 
-  <div class="container">
+      <% if alert %>
+        <div class="alert alert-danger"><%= alert %></div>
+      <% end %>
 
-<%= render "partials/header" %>
-<br>
-     <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
 
-  <div class="alert alert-danger d-none"></div>
-  <br>
-<br>
-
-    <%= yield %>
-<br>
-<%= render "partials/footer" %>
-  </div>
-</body>
+    <%= render "partials/footer" %>
+  </body>
 </html>
