@@ -5,7 +5,11 @@
     padding-top: 6rem;
     padding-bottom: 6rem;
   }
-  
+  .pop {
+  transform: scale(1.05);
+  transition: transform 0.18s ease-out;
+}
+
   .bg-dark-gray {
     background-color: #1e1e1e;
   }

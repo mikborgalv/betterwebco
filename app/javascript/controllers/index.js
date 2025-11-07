@@ -28,5 +28,11 @@ application.register("projects", ProjectsController)
 import SearchController from "./search_controller"
 application.register("search", SearchController)
 
+import SigninController from "./signin_controller"
+application.register("signin", SigninController)
+
+import SignupController from "./signup_controller"
+application.register("signup", SignupController)
+
 import ThankYouController from "./thank_you_controller"
 application.register("thank-you", ThankYouController)
