@@ -24,6 +24,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
+      send_to_n8n_webhook(@customer)
       redirect_to thank_you_customer_path(@customer) # Redirect to thank you page
     else
       puts @customer.errors.full_messages # Debugging
@@ -75,4 +76,44 @@ class CustomersController < ApplicationController
       # params.expect(customer: [ :name, :email, :message, :project_type ])
       params.require(:customer).permit(:name, :email, :message, :project_type)
     end
+  def send_to_n8n_webhook(customer)
+    # Replace with your n8n webhook URL
+    webhook_url = ENV['N8N_WEBHOOK_URL'] || 'https://betterwebco.app.n8n.cloud/webhook/3d2c63ed-9a2f-4ddb-a693-5e6d21df0d80'
+    
+    begin
+      uri = URI.parse(webhook_url)
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = (uri.scheme == 'https')
+      http.read_timeout = 10
+      
+      request = Net::HTTP::Post.new(uri.path, { 'Content-Type' => 'application/json' })
+      
+      # Prepare JSON payload
+      payload = {
+        customer_id: customer.id,
+        name: customer.name,
+        email: customer.email,
+        phone: customer.phone,
+        message: customer.message,
+        created_at: customer.created_at,
+        timestamp: Time.current.iso8601
+      }
+      
+      request.body = payload.to_json
+      
+      response = http.request(request)
+      
+      if response.code.to_i >= 200 && response.code.to_i < 300
+        Rails.logger.info "Successfully sent customer data to n8n webhook: #{customer.id}"
+      else
+        Rails.logger.error "n8n webhook returned status #{response.code}: #{response.body}"
+      end
+      
+    rescue StandardError => e
+      # Log error but don't fail the customer creation
+      Rails.logger.error "Failed to send to n8n webhook: #{e.message}"
+    end
+  end
+
+  
 end
