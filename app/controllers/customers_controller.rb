@@ -78,7 +78,7 @@ class CustomersController < ApplicationController
     end
   def send_to_n8n_webhook(customer)
     # Replace with your n8n webhook URL
-    webhook_url = ENV['N8N_WEBHOOK_URL'] || 'https://betterwebco.app.n8n.cloud/webhook/3d2c63ed-9a2f-4ddb-a693-5e6d21df0d80'
+    webhook_url = ENV['N8N_WEBHOOK_URL'] || 'https://betterwebco.app.n8n.cloud/webhook-test/3d2c63ed-9a2f-4ddb-a693-5e6d21df0d80'
     
     begin
       uri = URI.parse(webhook_url)
