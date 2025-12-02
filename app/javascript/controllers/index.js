@@ -16,6 +16,9 @@ application.register("header", HeaderController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import PlanModalController from "./plan_modal_controller"
+application.register("plan-modal", PlanModalController)
+
 import PlanSelectController from "./plan_select_controller"
 application.register("plan-select", PlanSelectController)
 

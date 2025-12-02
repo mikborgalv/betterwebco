@@ -11,16 +11,6 @@ class CustomerTest < ActiveSupport::TestCase
     assert_not customer.save, "Saved the customer without a name"
    end
 
-   test "should report customer form error" do 
-    
-
-
-
-
-
-
-
-
 
 
 end

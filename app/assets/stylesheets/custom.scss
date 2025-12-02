@@ -362,3 +362,154 @@ a.text-light {
     padding-bottom: 1rem; // Adjust padding for smaller screens
   }
 }
+.header-modern {
+  border-bottom: 1px solid rgba(255, 193, 7, .15); // subtle warning-yellow
+
+  .brand-accent {
+    color: #ffc107; // bootstrap warning yellow
+    font-weight: 600;
+    letter-spacing: .3px;
+  }
+
+  .modern-link {
+    position: relative;
+    transition: color .15s linear;
+
+    &:hover {
+      color: #ffc107 !important;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #ffc107;
+      transition: width .2s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+/* mobile improvement */
+.navbar-toggler {
+  font-size: 1.4rem;
+  color: #ffc107;
+}
+.header-modern {
+  border-bottom: 1px solid rgba(255, 193, 7, .15);
+
+  .brand-accent {
+    color: #ffc107;
+    font-weight: 600;
+    letter-spacing: .3px;
+  }
+
+  .modern-link {
+    position: relative;
+    transition: color .15s linear;
+
+    &:hover {
+      color: #ffc107 !important;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #ffc107;
+      transition: width .2s ease;
+    }
+
+    &:hover::after { width: 100%; }
+  }
+}
+
+/* smooth theme switch */
+.theme-transition {
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+/* glass subtle look for app like feeling */
+.header-modern {
+  backdrop-filter: blur(6px);
+  background-color: rgba(0,0,0,0.85) !important;
+  border-bottom: 1px solid rgba(255, 193, 7, .15);
+
+  .brand-accent {
+    color: #ffc107;
+    font-weight: 600;
+    letter-spacing: .3px;
+  }
+
+  .modern-link {
+    position: relative;
+    transition: color .15s linear;
+
+    &:hover { color: #ffc107 !important; }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #ffc107;
+      transition: width .2s ease;
+    }
+
+    &:hover::after { width: 100%; }
+  }
+}
+
+/* smooth transition */
+.theme-transition {
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+}
+header {
+  transition: min-height .3s ease;
+}
+/* desktop white-mode on scroll */
+@media (min-width: 768px) {
+    .navbar-brand {
+    margin-right: 2rem; /* even more spacing if you want */
+  }
+  .header-light {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255,255,255,0.85) !important;
+    border-bottom: 1px solid rgba(0,0,0,.08) !important;
+    transition: background-color .25s ease, border-color .25s ease;
+
+    .brand-accent {
+      color: #1d1d1d !important;
+      transition: color .25s ease;
+    }
+
+    .modern-link {
+      color: #212529 !important;
+      transition: color .15s linear;
+
+      &:hover {
+        color: #ffc107 !important;
+      }
+
+      &::after {
+        background-color: #ffc107;
+      }
+    }
+
+    .navbar-toggler {
+      color: #ffc107 !important;
+    }
+  }
+}
+

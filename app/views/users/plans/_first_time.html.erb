@@ -1,0 +1,18 @@
+<!-- app/views/users/dashboard/_plans.html.erb -->
+
+<% if plan.present? %>
+  <!-- Show only the selected plan for normal users -->
+  <%= render "users/plans/plan", plan: account.plan, account: account %>
+<% else %>
+  <!-- Show all plans (new users or admins) -->
+  <div class="row">
+    <% plans.each do |plan| %>
+      <div class="col-md-4 mb-3">
+        <%= render "users/dashboard/plans", plan: plan, account: account %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+<!-- app/views/users/dashboard/_plans.html.erb -->

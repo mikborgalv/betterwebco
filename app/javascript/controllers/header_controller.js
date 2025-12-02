@@ -17,6 +17,15 @@ export default class extends Controller {
       this.openMenu()
     }
   }
+    onScroll() {
+    if (window.innerWidth >= 768) {
+      if (window.scrollY > 50) {
+        this.element.classList.add("header-light")
+      } else {
+        this.element.classList.remove("header-light")
+      }
+    }
+  }
 
   openMenu() {
     this.menuTarget.classList.add("show")
