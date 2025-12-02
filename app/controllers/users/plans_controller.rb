@@ -9,8 +9,6 @@ def index
   @plans = Plan.all
 end
 
-
-
   def create
     if @account.blank?
       @account = current_user.build_web_developer_account(plan: @plan)

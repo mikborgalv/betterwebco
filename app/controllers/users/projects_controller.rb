@@ -6,8 +6,10 @@ class Users::ProjectsController < ApplicationController
 
     def index
     @plans = @account.plan ? [@account.plan] : []
-  end
-  def create
+    end
+
+    
+    def create
     @project = @account.projects.build(project_params)
 
     if @project.save
@@ -16,8 +18,6 @@ class Users::ProjectsController < ApplicationController
       redirect_to users_dashboard_path, alert: "Failed to add project."
     end
   end
-
-
 
 
   def update
