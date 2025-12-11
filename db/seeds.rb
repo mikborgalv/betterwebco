@@ -7,7 +7,32 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-AdminUser.create!(email: 'admin1@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# User.create!(email: 'user@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# db/seeds.rb
+# Seed plans for Web Developer Accounts
+# db/seeds.rb
+# Seed plans for Web Developer Accounts (based on updated schema)
+
+Plan.create!(
+  name: "Single Page Website",
+  description: "A clean, modern single-page website ideal for portfolios, resumes, or basic business landing pages.",
+  price: 499.00
+)
+
+Plan.create!(
+  name: "Multi-Page Website with Database",
+  description: "A multi-page website including custom database integration for dynamic content and user features.",
+  price: 1999.00
+)
+
+Plan.create!(
+  name: "Pro Web Management + Database Creation",
+  description: "A full-service package including professional web management, advanced database creation, monthly maintenance, and security updates.",
+  price: 4999.00
+)
+
+puts "Plans seeded successfully!"
+
 
 
 
