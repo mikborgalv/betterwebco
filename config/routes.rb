@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "customers#index"
 devise_for :users, controllers: {
   sessions: 'users/sessions'
-}, skip: [:registrations]
+}
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
