@@ -12,5 +12,7 @@
 # db/seeds.rb
 # Seed plans for Web Developer Accounts (based on updated schema)
 
+User.create!(email: 'projectmanager@betterwebco.com', password: 'Fufurufu07', password_confirmation: 'Fufurufu07')
 
+puts "user seeded successfully!"
 
