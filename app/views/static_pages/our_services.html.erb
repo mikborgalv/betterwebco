@@ -18,83 +18,43 @@
       
     </div>
     <div class="row" data-thank-you-target="cards">
-      <% technologies = [
-        {
-          title: "Ruby",
-          description: "The programming language that powers Rails. Ruby is known for its simplicity and developer-friendly syntax.",
-          icon: "bi-gem"
-        },
-        {
-          title: "Ruby on Rails (Rails Framework)",
-          description: "A full-stack web framework that provides tools for building scalable, maintainable web applications using the MVC (Model-View-Controller) architecture.",
-          icon: "bi-layers"
-        },
-        {
-          title: "SQLite / PostgreSQL / MySQL (Database)",
-          description: "SQLite (default for development) is a lightweight database for local development. PostgreSQL and MySQL are commonly used for production due to scalability and performance.",
-          icon: "bi-database"
-        },
-        {
-          title: "ERB or Frontend Frameworks (HTML/CSS/JS)",
-          description: "ERB: Default templating system for rendering dynamic HTML with embedded Ruby. HTML/CSS: Essential for structuring and styling web pages. JavaScript (JS): Adds interactivity and dynamic behavior to web apps.",
-          icon: "bi-code-square"
-        },
-        {
-          title: "Stimulus / Turbo (Frontend Enhancements)",
-          description: "Stimulus.js: A lightweight JavaScript framework for adding small, reactive UI behaviors. Turbo (Hotwire): Speeds up page loads by replacing traditional JavaScript-heavy solutions with server-driven updates.",
-          icon: "bi-lightning"
-        },
-        {
-          title: "Devise (Authentication & Authorization)",
-          description: "A widely used Ruby gem for user authentication, handling sign-up, login, and password management.",
-          icon: "bi-shield-lock"
-        },
-        {
-          title: "Active Record (ORM – Object-Relational Mapping)",
-          description: "Rails’ built-in ORM that simplifies database interactions using Ruby objects instead of raw SQL queries.",
-          icon: "bi-table"
-        },
-        {
-          title: "RSpec / MiniTest (Testing Frameworks)",
-          description: "RSpec: A behavior-driven testing framework for writing clear, human-readable tests. MiniTest: A lightweight alternative included in Rails by default.",
-          icon: "bi-check-circle"
-        },
-        {
-          title: "Webpack / esbuild (JavaScript Bundling)",
-          description: "Webpack: Previously used for managing and bundling JavaScript assets in Rails. esbuild: A modern, faster alternative for compiling JavaScript and CSS in Rails 7+.",
-          icon: "bi-box"
-        },
-        {
-          title: "Puma (Web Server)",
-          description: "The default web server in Rails that efficiently handles multiple requests for better performance.",
-          icon: "bi-server"
-        },
-        {
-          title: "Sidekiq (Background Jobs Processing)",
-          description: "A background job processing system for handling tasks like email sending and data processing asynchronously.",
-          icon: "bi-clock"
-        },
-        {
-          title: "Redis (Caching & Session Storage)",
-          description: "An in-memory data store used for caching and speeding up database queries, as well as storing session data.",
-          icon: "bi-speedometer"
-        },
-        {
-          title: "Bootstrap / Tailwind CSS (CSS Frameworks)",
-          description: "Bootstrap: A popular CSS framework with ready-to-use UI components. Tailwind CSS: A utility-first CSS framework for highly customizable designs (default in Rails 7 with --css=tailwind).",
-          icon: "bi-palette"
-        },
-        {
-          title: "Action Mailer (Email Handling)",
-          description: "Built-in Rails tool for sending emails, often used with SendGrid, Mailgun, or Postmark.",
-          icon: "bi-envelope"
-        },
-        {
-          title: "Git / GitHub / GitLab (Version Control & Collaboration)",
-          description: "Git: A version control system for tracking changes in code. GitHub / GitLab: Platforms for hosting repositories and collaborating with teams.",
-          icon: "bi-git"
-        }
-      ] %>
+<% services = [
+  {
+    title: "Business Website & Lead Generation",
+    description: "A custom, mobile-friendly website designed to convert visitors into customers. Includes responsive design, SEO optimization, contact forms, Google Maps integration, analytics, fast performance, and lead capture tools to help your business generate more sales.",
+    icon: "bi-globe2"
+  },
+  {
+    title: "Customer Portal & CRM Development",
+    description: "A secure web application that allows customers to manage their accounts, appointments, invoices, documents, and communication while providing your business with a centralized CRM and administrative dashboard.",
+    icon: "bi-people-fill"
+  },
+  {
+    title: "Online Booking & Scheduling Systems",
+    description: "Automate appointment scheduling with an online booking platform featuring calendar management, automated reminders, staff scheduling, online payments, customer accounts, and email notifications.",
+    icon: "bi-calendar2-check-fill"
+  },
+  {
+    title: "Business Process Automation",
+    description: "Eliminate repetitive tasks by automating lead management, customer onboarding, quote requests, email workflows, invoicing, notifications, CRM synchronization, and AI-powered business processes.",
+    icon: "bi-gear-wide-connected"
+  },
+  {
+    title: "E-Commerce & Online Ordering",
+    description: "Launch a secure online store with product management, shopping cart, payment processing, inventory tracking, customer accounts, shipping integrations, coupons, and sales reporting to grow your online revenue.",
+    icon: "bi-cart-check-fill"
+  },
+  {
+    title: "Custom Business Management Software",
+    description: "Replace spreadsheets and disconnected software with custom-built business applications tailored to your workflow. Features can include inventory management, work orders, employee management, invoicing, reporting, scheduling, and customer management.",
+    icon: "bi-diagram-3-fill"
+  },
+  {
+    title: "Website Maintenance & Growth Plans",
+    description: "Keep your website secure, optimized, and growing with ongoing maintenance services including security updates, backups, bug fixes, content updates, performance optimization, SEO monitoring, and priority technical support.",
+    icon: "bi-shield-check"
+  }
+] %>
 
       <% technologies.each do |tech| %>
         <div class="col-12 col-md-6 mb-4">
